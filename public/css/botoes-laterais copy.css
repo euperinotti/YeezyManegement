@@ -1,0 +1,29 @@
+
+.btnhome{
+    font-family: 'Raleway';font-size: 30px;
+    padding:30px 30px;
+    width: 200px;
+    transform:translate(5%, 200%);
+    color: white;
+    background-color: #242038;
+    border: 1px solid #555;
+    border-radius: 10px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    
+}   
+
+.btnhome:hover{
+    background: #423d5c;
+    transition: 1s;
+}
+.chome{ 
+        width: 100px;
+        height: 100px;
+        transform:translate(2%, 200%);
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        margin: 50px;
+    
+}
