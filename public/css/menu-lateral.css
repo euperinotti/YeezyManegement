@@ -1,0 +1,8 @@
+.divroxa{
+    height: 100%;
+    width : 300px;
+    position: absolute;
+    top: 50%;
+ transform: translate(-5%, -50%);
+    background-color: #242038;
+}
