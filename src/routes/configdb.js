@@ -21,4 +21,4 @@ onAuthStateChanged(auth, user =>{
     }else{
         console.log("Algo deu errado");
     }
-})
+}) 
