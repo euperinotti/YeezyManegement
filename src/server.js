@@ -1,12 +1,11 @@
-const express = require('express');
-/*
-const bodyParser = require('body-parser');
-const bdConnection = require('./config/bd')*/
+const express = require('express')
+const app = express()
+const port = 3000
 
-const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-app.use(express.json())
-
-app.listen(5400, () => {
-    console.log("API rodando na porta 3000 e banco na porta 5432")
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
