@@ -1,9 +1,8 @@
 
 .btnhome{
     font-family: 'Raleway';
-    text-align: center;
     font-size: 25px;
-    padding:20px 30px;
+    padding:20px 100px;
     width: 200px;
     transform:translate(95px, 100px);       
     color: white;
@@ -12,6 +11,8 @@
     border-radius: 10px;
     user-select:none;
     cursor: pointer;
+    position: relative;
+    text-align: center;
     
 }   
 
