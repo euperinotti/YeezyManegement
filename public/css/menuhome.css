@@ -1,6 +1,7 @@
 .menuhome{
+    position: absolute;
     height: 300px;
     width:  300px;
-    float: right;
+    right: 0px;
     background-color:#cac4ce;
 }

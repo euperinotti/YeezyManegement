@@ -1,8 +1,8 @@
 .divroxa{
-    height: 100%;
     width : 300px;
-    position: absolute;
-    top: 50%;
- transform: translate(-5%, -50%);
+    height: 100vh;
+    position: relative;
+    align-items: center;
+    align-content: center;
     background-color: #242038;
 }
