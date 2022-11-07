@@ -29,13 +29,13 @@ a {
     font-family: 'Raleway';
     font-size: 1.5rem;
     width: 100%;
-    padding: 1.1rem 0;  
     color: white;
     background-color: #242038;
     border: none;
     border-radius: 0.6rem;
     cursor: pointer;
     text-align: center;
+    height: 10rem;
 }
 
 .btn-aside a {
@@ -45,8 +45,9 @@ a {
     justify-content: space-between;
 }
 
-.btn-icon img {
+.btn-icon {
     width: 1.8rem;
+    height: 1.8rem;
     margin-left: 1rem;
 }
 
@@ -76,5 +77,5 @@ a {
 }
 
 .aside-github img {
-    width: 2.5rem;
+    width: 3.2rem;
 }
