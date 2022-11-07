@@ -1,8 +1,10 @@
 import { Request, Response, Router } from "express";
-import { home } from '../controllers/home.controller';
+import * as Rotas from '../controllers/home.controller';
 
 const routes = Router();
 
-routes.get('/', home);
+routes.get('/', Rotas.home);
+routes.get('/equipament', Rotas.equipament);
+routes.get('/client', Rotas.client);
 
 export default routes
