@@ -51,10 +51,17 @@ a {
 }
 
 .btn-active {
-    background-color: #8D86C9;
     width: 1rem;
     height: 2.3rem;
     border-radius: 5px;
+}
+
+.show {
+    background-color: #8D86C9;
+}
+
+.hide {
+    background-color: none;
 }
 
 .btn-aside:hover {
