@@ -7,5 +7,6 @@ routes.get('/', Rotas.home);
 routes.get('/equipaments', Rotas.equipament);
 routes.get('/clients', Rotas.client);
 routes.get('/login', Rotas.login);
+routes.get('/config', Rotas.configdb);
 
 export default routes

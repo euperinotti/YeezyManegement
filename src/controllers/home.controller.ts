@@ -20,7 +20,13 @@ export const client = (req: Request, res: Response) => {
 }
 
 export const login = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, '../views/pages/teladelogin.html'), {
+    res.render(path.join(__dirname, '../views/pages/teladelogin.ejs'), {
         pageName: 'Login'
     });
+}
+
+export const configdb = (req: Request, res: Response) => {
+    res.render(path.join(__dirname, 'public/src/configdb.js'),{
+        pageName: 'Config'
+    })
 }
