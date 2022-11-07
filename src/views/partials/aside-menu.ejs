@@ -7,11 +7,17 @@
                     <img src="icons/setting.svg" alt="settings icon">
                 </div>
                 <p>Home</p>
-                <div class="btn-active"></div>
+                <div class="btn-active <% if(pageName == 'Home') {%> show <% } %> hide"></div>
             </a>
         </button>
-        <button class="btn-aside"><a href="/equipament">Equipamento</a></button>
-        <button class="btn-aside"><a href="/client">Cliente</a></button>
+        <button class="btn-aside"><a href="/equipament">
+            <div class="btn-icon">
+                <img src="icons/equipament.svg" alt="equipament icon">
+            </div>
+            <p>Equipamento</p>
+            <div class="btn-active <% if(pageName == 'Equipamento') {%> show <% } %> hide"></div>
+        </a></button>
+        <button class="btn-aside <% if(pageName == 'Caliente') {%> show <% } %> hide"><a href="/client">Cliente</a></button>
     </div>
     <div class="aside-github">
         <a href="https://github.com/AllysomFernando/YeezyManegement" target="_blank">
