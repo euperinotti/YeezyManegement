@@ -9,6 +9,10 @@ aside{
     padding: 1.25rem;   
 }
 
+a {
+    text-decoration: none;
+}
+
 .aside-buttons{
     width: 90%; 
     display: flex;
@@ -31,6 +35,11 @@ aside{
     text-align: center;
 }
 
+.btn-aside a {
+    color: inherit;
+    
+}
+
 .btn-aside:hover {
     background: #423d5c;
     transition: 1s;
@@ -39,7 +48,7 @@ aside{
 .header{
     font-family: 'Franklin Gothic Demi Cond', sans-serif;
     color: #725AC1;
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 0.5rem;                       
 }
 
