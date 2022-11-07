@@ -4,4 +4,4 @@ Levantamentos de Requisitos:
 
 ## Dependencias
 
-Nodemon, Typescript, Firebase, Express, Ts-Node
+Nodemon, Typescript, Firebase, Express, Ts-Node, Ejs

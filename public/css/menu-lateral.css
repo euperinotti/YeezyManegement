@@ -1,8 +1,48 @@
-.divroxa{
-    width : 300px;
+aside{
+    width : 15%;
     height: 100vh;
-    position: relative;
+    display: flex;
     align-items: center;
-    align-content: center;
+    justify-content: space-between;
+    flex-direction: column;
     background-color: #242038;
+    padding: 1.25rem;   
+}
+
+.aside-buttons{
+    width: 90%; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 25%;
+}
+
+.btn-aside {
+    font-family: 'Raleway';
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 1.25rem 1.875rem;  
+    color: white;
+    background-color: #242038;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-aside:hover {
+    background: #423d5c;
+    transition: 1s;
+}
+
+.header{
+    font-family: 'Franklin Gothic Demi Cond', sans-serif;
+    color: #725AC1;
+    font-size: 3rem;
+    letter-spacing: 0.5rem;                       
+}
+
+.aside-github img {
+    width: 2.5rem;
 }
