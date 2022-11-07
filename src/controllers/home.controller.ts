@@ -18,3 +18,9 @@ export const client = (req: Request, res: Response) => {
         pageName: 'Clientes'
     });
 }
+
+export const css = (req: Request, res: Response) => {
+    res.render(path.join(__dirname, '../'), {
+        pageName: 'Cliente'
+    });
+}
