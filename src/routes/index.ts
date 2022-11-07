@@ -4,7 +4,7 @@ import * as Rotas from '../controllers/home.controller';
 const routes = Router();
 
 routes.get('/', Rotas.home);
-routes.get('/equipament', Rotas.equipament);
-routes.get('/client', Rotas.client);
+routes.get('/equipaments', Rotas.equipament);
+routes.get('/clients', Rotas.client);
 
 export default routes

@@ -9,13 +9,13 @@ export const home = (req: Request, res: Response) => {
 
 export const equipament = (req: Request, res: Response) => {
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
-        pageName: 'Equipamento'
+        pageName: 'Equipamentos'
     });
 }
 
 export const client = (req: Request, res: Response) => {
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
-        pageName: 'Cliente'
+        pageName: 'Clientes'
     });
 }
 

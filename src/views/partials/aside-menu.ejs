@@ -1,9 +1,33 @@
 <aside>
     <div class="header">YEEZY</div>
     <div class="aside-buttons">
-        <button class="btn-aside"><a href="/">Home</a></button>
-        <button class="btn-aside"><a href="/equipament">Equipamento</a></button>
-        <button class="btn-aside"><a href="/client">Cliente</a></button>
+        <button class="btn-aside">
+            <a href="/">
+                <div class="btn-icon">
+                    <img src="icons/setting.svg" alt="settings icon">
+                </div>
+                <p>Home</p>
+                <div class="btn-active <% if(pageName == 'Home') {%> show <% } %> hide"></div>
+            </a>
+        </button>
+        <button class="btn-aside">
+            <a href="/equipaments">
+                <div class="btn-icon">
+                    <img src="icons/equipament.svg" alt="equipament icon">
+                </div>
+                <p>Equipamentos</p>
+                <div class="btn-active <% if(pageName == 'Equipamentos') {%> show <% } %> hide"></div>
+            </a>
+        </button>
+        <button class="btn-aside">
+            <a href="/clients">
+                <div class="btn-icon">
+                    <img src="icons/client.svg" alt="equipament icon">
+                </div>
+                <p>Clientes</p>
+                <div class="btn-active <% if(pageName == 'Clientes') {%> show <% } %> hide"></div>
+            </a>
+        </button>
     </div>
     <div class="aside-github">
         <a href="https://github.com/AllysomFernando/YeezyManegement" target="_blank">
