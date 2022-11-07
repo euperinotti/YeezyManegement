@@ -19,8 +19,8 @@ export const client = (req: Request, res: Response) => {
     });
 }
 
-export const css = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, '../'), {
-        pageName: 'Cliente'
+export const login = (req: Request, res: Response) => {
+    res.render(path.join(__dirname, '../views/pages/teladelogin.html'), {
+        pageName: 'Login'
     });
 }

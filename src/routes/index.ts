@@ -6,5 +6,6 @@ const routes = Router();
 routes.get('/', Rotas.home);
 routes.get('/equipaments', Rotas.equipament);
 routes.get('/clients', Rotas.client);
+routes.get('/login', Rotas.login);
 
 export default routes
