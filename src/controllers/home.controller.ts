@@ -14,12 +14,13 @@ export const equipament = (req: Request, res: Response) => {
 }
 
 export const client = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, '../views/pages/index.ejs'), {
+    res.render(path.join(__dirname, '../views/pages/clients.ejs'), {
         pageName: 'Clientes'
     });
 }
 
-
-
-
-
+export const configdb = (req: Request, res: Response) => {
+    res.render(path.join(__dirname, 'public/src/configdb.js'),{
+        pageName: 'Config'
+    })
+}
