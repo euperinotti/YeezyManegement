@@ -14,14 +14,8 @@ export const equipament = (req: Request, res: Response) => {
 }
 
 export const client = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, '../views/pages/index.ejs'), {
+    res.render(path.join(__dirname, '../views/pages/clients.ejs'), {
         pageName: 'Clientes'
-    });
-}
-
-export const login = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, '../views/pages/teladelogin.ejs'), {
-        pageName: 'Login'
     });
 }
 
