@@ -15,7 +15,7 @@ aside{
     align-items: center;
     width: 100%;
     padding: 0 1rem;
-    gap: 1.5rem;                
+    gap: 2rem;                
 }
 
 .header h2 {
@@ -28,7 +28,6 @@ aside{
 .header .close-icon {
     cursor: pointer;
 }
-
 
 
 a {
@@ -68,8 +67,7 @@ a {
 }
 
 .btn-icon, .btn-icon img, .close-icon, .close-icon img {
-    width: 1.8rem;
-    height: 1.8rem;
+    height: 1.4rem;
 }
 
 .btn-icon {
