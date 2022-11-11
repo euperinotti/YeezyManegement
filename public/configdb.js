@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js'
-
+export var database = firebase.database();
 
 const firebaseConfig= initializeApp({
     apiKey: "AIzaSyCQOOzm2eydhNpucb6CfDFqXt1ewInINL8",
@@ -13,5 +13,8 @@ const firebaseConfig= initializeApp({
 
 
 firebaseApp.initializeApp(firebaseConfig)
+
+
+
 
 

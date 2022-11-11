@@ -1,0 +1,22 @@
+{
+    "cliente":[{
+        "cnpj": "85271289000136",
+        "equipamento_id_equipamento": "10",
+        "idcliente": "32",
+        "nome": "YeezyServices"
+    }],
+    "equipamento": [{
+        "descricao": "Equipamento esta sendo emprestado",
+        "idequipamento": "10",
+        "part_number": "13",
+        "serial_number": "1223467812312"
+    }],
+    "estoque": [{
+        "descricao": "Um router da cisco",
+        "equipamento_id_equipamento":"10", 
+        "idestoque": "13",
+        "nome": "roteador cisco 2910",
+        "quantidade": "10",
+        "status": "disponivel"
+    }]
+}
