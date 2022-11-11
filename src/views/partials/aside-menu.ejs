@@ -1,4 +1,4 @@
-<aside>
+<aside class="aside-full">
     <div class="header">
         <h2>YEEZY</h2>
         <div class="close-icon">
@@ -6,31 +6,31 @@
         </div>
     </div>
     <div class="aside-buttons">
-        <button class="btn-aside">
+        <button class="btn-aside <% if(menu.home) {%> active-menu <% } %>">
             <a href="/">
                 <div class="btn-icon">
                     <img src="icons/setting.svg" alt="settings icon">
                 </div>
                 <p>Home</p>
-                <div class="btn-active <% if(pageName == 'Home') {%> show <% } %> hide"></div>
+                <div class="btn-active <% if(menu.home) {%> show-mark <% } %>"></div>
             </a>
         </button>
-        <button class="btn-aside">
+        <button class="btn-aside <% if(menu.equipaments) {%> active-menu <% } %>">
             <a href="/equipaments">
                 <div class="btn-icon">
                     <img src="icons/equipament.svg" alt="equipament icon">
                 </div>
                 <p>Equipamentos</p>
-                <div class="btn-active <% if(pageName == 'Equipamentos') {%> show <% } %> hide"></div>
+                <div class="btn-active <% if(menu.equipaments) {%> show-mark <% } %>"></div>
             </a>
         </button>
-        <button class="btn-aside">
+        <button class="btn-aside <% if(menu.clients) {%> active-menu <% } %>">
             <a href="/clients">
                 <div class="btn-icon">
                     <img src="icons/client.svg" alt="equipament icon">
                 </div>
                 <p>Clientes</p>
-                <div class="btn-active <% if(pageName == 'Clientes') {%> show <% } %> hide"></div>
+                <div class="btn-active <% if(menu.clients) {%> show-mark <% } %>"></div>
             </a>
         </button>
     </div>
@@ -39,4 +39,6 @@
             <img src="icons/github.svg" alt="Github"/>
         </a>
     </div>
+
+    <script src="js/aside-menu.js"></script>
 </aside>

@@ -1,0 +1,110 @@
+#menu-container {
+    width: 100%;
+}
+
+.left-side {
+    gap: 1rem;
+    height: 100vh;
+    padding: 1.25rem 2rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway';
+}
+
+.side-header h1 {
+    font-family: 'Franklin Gothic Demi Cond', sans-serif;
+    letter-spacing: 0.5rem;
+    color: #725AC1;
+}
+
+.side-search-options {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    height: 3rem;
+}
+
+.side-search-options button, .side-search-options select {
+    cursor: pointer;
+}
+
+.side-search, .side-search-options button, .side-search-options select {
+    padding: 0.175rem;
+    height: 100%;
+}
+
+.item-box, .side-search, .side-search-options button, .side-search-options select {
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.side-search, .filter {
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.15);
+}
+
+.filter {
+    width: 6.5rem;
+}
+
+.filter select {
+    width: 100%;
+    font-size: 1rem;
+}
+
+
+.side-search {
+    width: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-search input {
+    width: 90%;
+    height: 100%;
+    padding: 0rem 0.75rem;
+    font-size: 1.25rem;
+}
+
+.side-search button {
+    width: 3rem;
+}
+
+.side-search button img {
+    height: 1.75rem;
+}
+
+
+
+
+.side-items {
+    height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-box {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #c6c6c6;
+}
+
+::-webkit-scrollbar {
+    display: unset;
+    width: 0;
+}
+
+.item-details h2 {
+    font-weight: 700;
+    font-size: 2rem;
+}

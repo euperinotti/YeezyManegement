@@ -1,7 +1,39 @@
 <%- include('../partials/head.ejs') %>
 <body>
     <%- include('../partials/aside-menu.ejs') %>
-    <div class="menuhome"></div>    
+    <div id="menu-container">
+        <div class="left-side">
+            <div class="side-header">
+                <h1>DISPONÍVEIS</h1>
+            </div>
+            <div class="side-search-options">
+                <div class="side-search">
+                    <input type="search" name="available-search-bar" placeholder="Pesquisar...">
+                    <button type="submit">
+                        <img src="icons/search.svg" alt="Pesquisar">
+                    </button>
+                </div>
+                <button class="filter">
+                    <select name="filter-select">
+                        <option value="name">Nome</option>
+                        <option value="type">Tipo</option>
+                        <option value="brand">Marca</option>
+                    </select>
+                </button>
+            </div>
+            <div class="side-items">
+                <div class="item-box">
+                    <div class="item-details">
+                        <h2>Nome</h2>
+                        <h3>Estado: XXXXX</h3>
+                        <h3>Cliente: XXXXX</h3>
+                    </div>
+                    <div class="item-status"></div>
+                    <div class="item-expand"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
    <script type="module" src="configdb.js"></script> 
