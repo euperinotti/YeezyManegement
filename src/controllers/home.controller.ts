@@ -38,10 +38,11 @@ export const client = (req: Request, res: Response) => {
         pageName: 'Clientes',
         menu: selectedMenu('clients')
     });
+   
 }
 
 export const configdb = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, 'public/src/configdb.js'),{
+    res.render(path.join(__dirname, '/src/configdb.js'),{
         pageName: 'Config'
     })
 }

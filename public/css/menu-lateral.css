@@ -68,6 +68,12 @@ a {
     height: 3.5rem;
 }
 
+
+.svg {
+    fill: white
+}
+
+
 .btn-aside a {
     width: 100%;
     display: flex;
@@ -79,8 +85,10 @@ a {
     height: 1.4rem;
 }
 
+
 .btn-icon {
     margin-left: 1rem;
+  
 }
 
 .btn-active {
