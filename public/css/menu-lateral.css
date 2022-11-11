@@ -87,14 +87,11 @@ a {
     width: 0.7rem;
     height: 2.3rem;
     border-radius: 3px;
-}
-
-.show {
-    background-color: #8D86C9;
-}
-
-.hide {
     background-color: none;
+}
+
+.show-mark {
+    background-color: #8D86C9;
 }
 
 .btn-aside:hover {
@@ -103,4 +100,8 @@ a {
 
 .aside-github img {
     width: 3.2rem;
+}
+
+.active-menu {
+    background-color: #393357;
 }
