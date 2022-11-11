@@ -1,5 +1,5 @@
 aside{
-    width : 16.5rem;
+    width: 16.5rem;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -7,6 +7,16 @@ aside{
     flex-direction: column;
     background-color: #242038;
     padding: 1.25rem 0;   
+}
+
+.aside-close {
+    width: 7rem;
+    transition: 200ms;
+}
+
+.aside-full {
+    width: 16.5rem;
+    transition: 200ms;
 }
 
 .header{
@@ -28,7 +38,6 @@ aside{
 .header .close-icon {
     cursor: pointer;
 }
-
 
 a {
     text-decoration: none;
@@ -78,14 +87,11 @@ a {
     width: 0.7rem;
     height: 2.3rem;
     border-radius: 3px;
-}
-
-.show {
-    background-color: #8D86C9;
-}
-
-.hide {
     background-color: none;
+}
+
+.show-mark {
+    background-color: #8D86C9;
 }
 
 .btn-aside:hover {
@@ -94,4 +100,8 @@ a {
 
 .aside-github img {
     width: 3.2rem;
+}
+
+.active-menu {
+    background-color: #393357;
 }
