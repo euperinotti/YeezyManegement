@@ -22,8 +22,6 @@ export const home = (req: Request, res: Response) => {
         pageName: 'Home',
         menu: selectedMenu('home'),
     });
-
-    console.log(JSON.stringify(selectedMenu('home')))
 }
 
 export const equipament = (req: Request, res: Response) => {
