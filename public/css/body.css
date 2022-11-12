@@ -15,6 +15,17 @@ body {
     background-color: #f8f8f8;
 }
 
-.menuhome{
-    height: 100vh;
+:root {
+    --purple: #242038;
+    --violet: #725AC1;
+    --background: white;
+    --spacing-s: 0.75rem;
+    --spacing-m: 1.25rem;
+    --spacing-l: 1.5rem;
+    --spacing-xl: 2rem;
+
+    --font-size-s: 1rem;
+    --font-size-m: 1.5rem;
+    --font-size-l: 2rem;
+    --font-size-xl: 2.2rem; 
 }
