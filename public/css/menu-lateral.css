@@ -1,4 +1,3 @@
-
 aside{
     width: 16.5rem;
     height: 100vh;
@@ -7,7 +6,7 @@ aside{
     justify-content: space-between;
     flex-direction: column;
     background-color: #242038;
-    padding: var(--spacing-m) 0;   
+    padding: var(--spacing-m) 0;
 }
 
 .aside-close {
@@ -58,7 +57,7 @@ a {
 
 .btn-aside {
     font-family: 'Raleway';
-    font-size: 1.5rem;
+    font-size: var(--font-size-sm);
     width: 100%;
     color: white;
     background-color: #242038;
