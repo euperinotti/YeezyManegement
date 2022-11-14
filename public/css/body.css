@@ -19,7 +19,8 @@ body {
 :root {
     --purple: #242038;
     --violet: #725AC1;
-    --background: white;
+    --white: white;
+    --spacing-ss: 0.5rem;
     --spacing-s: 0.75rem;
     --spacing-m: 1.25rem;
     --spacing-l: 1.5rem;
@@ -30,4 +31,77 @@ body {
     --font-size-m: 1.5rem;
     --font-size-l: 2rem;
     --font-size-xl: 2.2rem; 
+
+    --box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.15);
+}
+
+button {
+    cursor: pointer;
+    background-color: unset;
+}
+
+.header-franklin {
+    font-family: 'Franklin Gothic Demi Cond', sans-serif;
+    letter-spacing: 0.5rem;
+    color: var(--violet);
+}
+
+.header-raleway {
+    font-family: 'Raleway';
+    font-weight: 600;
+    color: var(--purple);
+}
+
+.search-bar {
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    width: calc(100% - 3rem);
+    height: 80%;
+    padding: 0rem var(--spacing-s);
+    font-size: var(--font-size-sm);
+}
+
+.search-bar button {
+    width: 3rem;
+}
+
+.search-bar button img {
+    height: 1.75rem;
+}
+
+.btn-ghost {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    color: var(--violet);
+    border: 2px solid var(--violet);
+    border-radius: 0.5rem;
+    width: max-content;
+    padding: var(--spacing-ss);
+}
+
+table {
+    font-family: 'Raleway';
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 3rem;
+}
+
+table thead {
+    background-color: var(--purple);
+    color: white;
+}
+
+table tbody td {
+    border-bottom: 1px solid var(--violet);
 }

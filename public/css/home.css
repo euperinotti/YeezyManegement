@@ -1,5 +1,5 @@
 #menu-container {
-    width: 70rem;
+    width: calc(100% - 15.5rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,12 +13,6 @@
     display: flex;
     flex-direction: column;
     font-family: 'Raleway';
-}
-
-.side-header h1 {
-    font-family: 'Franklin Gothic Demi Cond', sans-serif;
-    letter-spacing: 0.5rem;
-    color: #725AC1;
 }
 
 .side-search-options {
@@ -45,7 +39,7 @@
 }
 
 .side-search, .filter, .item-box {
-    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.15);
+    box-shadow: var(--box-shadow);
 }
 
 .filter {
@@ -57,27 +51,10 @@
     font-size: 1rem;
 }
 
-
 .side-search {
-    width: 30rem;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.side-search input {
-    width: 90%;
-    height: 100%;
-    padding: 0rem 0.75rem;
-    font-size: 1.25rem;
-}
-
-.side-search button {
-    width: 3rem;
-}
-
-.side-search button img {
-    height: 1.75rem;
 }
 
 .side-items {

@@ -1,3 +1,26 @@
-#body-panel {
-    padding: 2rem;
+#main-panel {
+    margin: var(--spacing-xl);
+    background-color: white;
+    width: calc(100% - 15.5rem);
+    height: fit-content;
+    border-radius: var(--spacing-l);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.15);
+}
+
+.panel-body, .header-container {
+    padding: var(--spacing-l);
+}
+
+.panel-actions {
+    padding: 0rem var(--spacing-l);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: var(--spacing-m) 0;
+}
+
+.header-container {
+    background-color: #CAC4CE;
+    border-radius: var(--spacing-l) var(--spacing-l) 0 0;
 }
