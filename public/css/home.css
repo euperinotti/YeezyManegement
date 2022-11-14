@@ -3,12 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: var(--spacing-xl);
 }
 
 .left-side {
     gap: 1rem;
     height: 100vh;
-    padding: 1.25rem 2rem;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -75,7 +75,7 @@
     padding: 1rem;
 }
 
-::-webkit-scrollbar {
+.side-items::-webkit-scrollbar {
     display: none;
     width: 0;
 }
