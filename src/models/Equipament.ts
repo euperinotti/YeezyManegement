@@ -1,18 +1,40 @@
-import { database } from '../../public/configdb'
+const Sequelize = require('sequelize')
 
-export interface IEquipament {
+const database = require('../../public/configdb')
+
+/*export interface IEquipament {
   name: string;
   description?: string;
   equipamentId: number;
   partNumber: number;
   serialNumber: string;
-}
+}*/
 
-export const Equipament = {
-  
-},
+export const Equipament = database.define('Equipment', 
+{
+  idequipamento: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true
+  },
+  serialNumber: {
+    type: Sequelize.VARCHAR,
+    allowNull: false,
+  },
+  partNumber: {
+    type: Sequelize.VARCHAR,
+    allowNull: false,
+  },
+  description: {
+    type: Sequelize.MEDIUMTEXT
+  },
+  name: {
+    type: Sequelize.VARCHAR
+  }
+})
 
-  getFromName: (name: string): IEquipament[] => {
+ /* getFromName: (name: string): IEquipament[] => {
    
   },
 
@@ -23,4 +45,4 @@ export const Equipament = {
   getFromPartNumber: (partNumber: number): IEquipament[] => {
     // Requisicao pelo numero de part do equipamento
   },
-};
+};*/
