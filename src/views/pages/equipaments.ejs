@@ -2,6 +2,36 @@
 <link rel="stylesheet" href="css/equipaments.css">
 </head>
 <body>
+    <div class="hidden-window">
+        <div class="panel-header">
+            <div class="header-container">
+                <h1 class="header-raleway">Novo Equipamento</h1>
+            </div>
+            <div class="panel-body">
+                <form action="" method="post">
+                    <label for="equipament-name">
+                        Nome*: <br>
+                        <input type="text" name="equipament-name" id="equipament-name" required>
+                    </label>
+                    <label for="equipament-serial-number">
+                        Serial Number*: <br>
+                        <input type="text" name="equipament-serial-number" id="equipament-serial-number" required>
+                    </label>
+                    <label for="equipament-part-number">
+                        Part Number*: <br>
+                        <input type="text" name="equipament-part-number" id="equipament-part-number" required>
+                    </label>
+                    <label for="equipament-description">
+                        Descrição: <br>
+                        <input type="text" name="equipament-description" id="equipament-description">
+                    </label>
+                    <div class="form-footer">
+                        <button type="submit" class="btn-cta">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <%- include('../partials/aside-menu.ejs') -%>
     <div id="main-panel">
         <div class="panel-header">
@@ -74,5 +104,7 @@
         </div>
 
     </div>
+
+    <script type="module" src="js/hiddenWindow.js"></script>
 </body>
 </html>

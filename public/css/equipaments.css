@@ -7,6 +7,11 @@
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.15);
 }
 
+.panel-body {
+    background-color: white;
+    border-radius: 0 0 var(--spacing-l) var(--spacing-l);
+}
+
 .panel-body, .header-container {
     padding: var(--spacing-l);
 }
@@ -23,4 +28,20 @@
 .header-container {
     background-color: #CAC4CE;
     border-radius: var(--spacing-l) var(--spacing-l) 0 0;
+}
+
+.hidden-window {
+    background-color: rgba(0,0,0,0.8);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden-window .panel-header {
+    width: auto;
+    max-width: 50rem;
+    height: auto;
 }

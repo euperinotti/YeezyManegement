@@ -19,6 +19,8 @@ body {
 :root {
     --purple: #242038;
     --violet: #725AC1;
+    --violet-2: #CAC4CE; 
+    --green: #48C945;
     --white: white;
     --spacing-ss: 0.5rem;
     --spacing-s: 0.75rem;
@@ -89,6 +91,17 @@ button {
     padding: var(--spacing-ss);
 }
 
+.btn-cta {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 0.5rem;
+    width: max-content;
+    padding: var(--spacing-s) var(--spacing-m);
+}
+
 table {
     font-family: 'Raleway';
     width: 100%;
@@ -104,4 +117,37 @@ table thead {
 
 table tbody td {
     border-bottom: 1px solid var(--violet);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 45rem;
+    gap: var(--spacing-l);
+}
+
+form label {
+    width: 45%;
+    font-family: 'Raleway';
+    font-weight: bold;
+    font-size: var(--font-size-m);
+    color: var(--purple);
+}
+
+form input[type="text"] {
+    border: 4px solid var(--violet-2);
+    border-radius: 0.5rem;
+    height: 3rem;
+    width: 100%;
+    padding: 0rem var(--spacing-s);
+    font-size: var(--font-size-sm);
+}
+
+.form-footer {
+    width: 95%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }

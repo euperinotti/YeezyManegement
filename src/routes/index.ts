@@ -7,6 +7,7 @@ const routes = Router();
 
 routes.get('/', home);
 routes.get('/equipaments', equipaments);
+routes.post('/equipaments', equipaments);
 routes.get('/clients', clients);
 // routes.get('/config', Rotas.configdb);
 
