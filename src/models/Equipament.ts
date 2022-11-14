@@ -9,11 +9,11 @@ export interface IEquipament {
 }
 
 export const Equipament = {
-        
+  
 },
 
   getFromName: (name: string): IEquipament[] => {
-    // Requisicao pelo nome do equipamento
+   
   },
 
   getFromSerialNumber: (serialNumber: string): IEquipament[] => {
