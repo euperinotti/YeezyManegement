@@ -1,3 +1,5 @@
+import { database } from '../../public/configdb'
+
 export interface IEquipament {
   name: string;
   description?: string;
