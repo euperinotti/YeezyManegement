@@ -2,8 +2,8 @@ let toggleArrow = document.querySelector('.close-icon');
 let aside = document.querySelector('aside');
 let menuText = document.querySelectorAll('.btn-aside p');
 let asideHeader = document.querySelector('.header');
-let closeAsideIcon = asideHeader.querySelector('.close-icon');
-let asideHeaderH1 = asideHeader.querySelector('h2');
+let closeAsideIcon = document.querySelector('.close-icon');
+let asideHeaderH1 = document.querySelector('.header h2');
 let asideButtonIcon = document.querySelectorAll('.btn-icon img')
 
 toggleArrow.addEventListener('click', () => {
@@ -23,10 +23,9 @@ function asideClosed(){
         element.style.display = 'none';
     });
 
-    asideHeader.style.gap = '0rem';
     closeAsideIcon.style.transform = 'rotate(180deg)';
     asideHeaderH1.innerHTML = 'YZY';
-    asideButtonIcon.style.height = '2rem'
+    asideHeaderH1.style.fontSize = '1.3rem'
 }
 
 function asideOpen(){
@@ -36,7 +35,7 @@ function asideOpen(){
         element.style.display = 'block';
     });
 
-    asideHeader.style.gap = '2rem';
     closeAsideIcon.style.transform = 'rotate(0deg)';
     asideHeaderH1.innerHTML = 'YEEZY';
+    asideHeaderH1.style.fontSize = '2rem'
 }
