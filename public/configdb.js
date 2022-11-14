@@ -1,7 +1,7 @@
 
 const Sequelize = require('sequelize')
 
-const componenteSequelize = new Sequelize('dbYeezy', 'root', '12345678',{
+const componenteSequelize = new Sequelize('dbyeezy', 'root', '12345678',{
     dialect: 'mysql',
     host: '127.0.0.1',
     port: 3332
