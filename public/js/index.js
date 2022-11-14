@@ -26,9 +26,9 @@
         name: "Roteador cisco 3"
      })
 
-     const alterEquipment = await Equipment.findByPk(2)
+  /*   const alterEquipment = await Equipment.findByPk(2)
      alterEquipment.serialNumber = "Arquivo Alterado"
-     await alterEquipment.save()
+     await alterEquipment.save()*/
 
      Equipment.destroy({
         where: {idequipamento: 1}

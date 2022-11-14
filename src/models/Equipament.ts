@@ -10,7 +10,7 @@ const database = require('../../public/configdb')
   serialNumber: string;
 }*/
 
-export const Equipament = database.define('Equipment', 
+const Equipament = database.define('Equipment', 
 {
   idequipamento: {
     type: Sequelize.INTEGER,
@@ -19,18 +19,18 @@ export const Equipament = database.define('Equipment',
     primaryKey: true
   },
   serialNumber: {
-    type: Sequelize.VARCHAR,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   partNumber: {
-    type: Sequelize.VARCHAR,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   description: {
-    type: Sequelize.MEDIUMTEXT
+    type: Sequelize.STRING
   },
   name: {
-    type: Sequelize.VARCHAR
+    type: Sequelize.STRING
   }
 })
 
@@ -46,3 +46,6 @@ export const Equipament = database.define('Equipment',
     // Requisicao pelo numero de part do equipamento
   },
 };*/
+
+
+module.exports = Equipament

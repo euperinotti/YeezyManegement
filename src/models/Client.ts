@@ -1,4 +1,4 @@
-import { IEquipament } from "./Equipament";
+import { Equipament } from "./Equipament.ts";
 
 interface IClient extends IEquipament {
     name: string;
