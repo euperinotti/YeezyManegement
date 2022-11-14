@@ -1,5 +1,5 @@
 aside{
-    width: 16.5rem;
+    width: 15.5rem;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -10,33 +10,28 @@ aside{
 }
 
 .aside-close {
-    width: 7rem;
+    width: 4.5rem;
     transition: 200ms;
 }
 
 .aside-full {
-    width: 16.5rem;
+    width: 15.5rem;
     transition: 200ms;
 }
 
 .header{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 0 1rem;
-    gap: 2rem;                
+    padding: 0 1rem;             
 }
 
 .header h2 {
     font-family: 'Franklin Gothic Demi Cond', sans-serif;
     color: #725AC1;
-    font-size: 2.2rem;
+    font-size: 2rem;
     letter-spacing: 0.5rem;
-}
-
-.header .close-icon {
-    cursor: pointer;
 }
 
 a {
@@ -79,6 +74,10 @@ a {
     height: 1.4rem;
 }
 
+.close-icon {
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
 
 .btn-icon {
     margin-left: 1rem;
@@ -101,7 +100,7 @@ a {
 }
 
 .aside-github img {
-    width: 3.2rem;
+    width: 2.7rem;
 }
 
 .active-menu {

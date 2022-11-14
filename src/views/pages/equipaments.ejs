@@ -1,0 +1,35 @@
+<%- include('../partials/head.ejs') -%>
+<link rel="stylesheet" href="css/equipament.css">
+</head>
+<body>
+    <%- include('../partials/aside-menu.ejs') -%>
+    <div id="body-panel">
+        <div class="panel-header">
+            <div class="header-container">
+                <h1>Equipamentos</h1>
+            </div>
+            <div class="panel-actions">
+                <div class="search-bar">
+                    <input type="search" name="equipament-search" placeholder="Pesquisar...">
+                    <button type="submit">
+                        <img src="icons/search.svg" alt="Pesquisar">
+                    </button>
+                </div>
+                <div class="add-equipament-div">
+                    <button class="add-equipament">Novo Equipamento</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>Nome</td>
+                    <td>Serial-Number</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
