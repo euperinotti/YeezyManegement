@@ -1,8 +1,26 @@
+
 <%- include('../partials/head.ejs') -%>
 <link rel="stylesheet" href="css/cliente.css">
 </head>
 <body>
     <%- include('../partials/aside-menu.ejs') -%>
-    
+ 
+        <form action="/pagina-processa-dados-do-form" method="post">
+            <div>
+                <label for="name">Nome:</label>
+                <input type="text" id="name" />
+            </div>
+            <div>
+                <label for="mail">Estado:</label>
+                <input type="email" id="mail" />
+            </div>
+            <div>
+                <label for="msg">Cliente:</label>
+                <textarea id="msg"></textarea>
+            </div>
+            <div class="button">
+                <button type="submit">Enviar sua mensagem</button>
+            </div>  
+    </forms>
 </body>
 </html>

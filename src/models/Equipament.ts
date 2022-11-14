@@ -1,3 +1,5 @@
+import { database } from '../../public/configdb'
+
 export interface IEquipament {
   name: string;
   description?: string;
@@ -7,11 +9,11 @@ export interface IEquipament {
 }
 
 export const Equipament = {
-        
+  
 },
 
   getFromName: (name: string): IEquipament[] => {
-    // Requisicao pelo nome do equipamento
+   
   },
 
   getFromSerialNumber: (serialNumber: string): IEquipament[] => {

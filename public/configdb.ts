@@ -1,7 +1,8 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js'
-export var database = firebase.database();
+import firebase from 'firebase/app'
+import 'firebase/database'
+export { database, firebase}
 
-const firebaseConfig= initializeApp({
+const firebaseConfig = ({
     apiKey: "AIzaSyCQOOzm2eydhNpucb6CfDFqXt1ewInINL8",
     authDomain: "yeezymanegement-30bf7.firebaseapp.com",
     projectId: "yeezymanegement-30bf7",
@@ -11,8 +12,14 @@ const firebaseConfig= initializeApp({
     measurementId: "G-J3PDX681H4"
 })
 
+if(!firebase.apps.length) { 
+    firebase.initializeApp(firebaseConfig)
+}else{
+    firebase.app()
+}
 
-firebaseApp.initializeApp(firebaseConfig)
+const database = firebase.database()
+
 
 
 
