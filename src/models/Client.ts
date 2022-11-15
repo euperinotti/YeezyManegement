@@ -1,4 +1,5 @@
-import { IEquipament } from "./Equipament";
+const Equipment = require('./Equipament.ts')
+import { IEquipament } from './Equipament.ts'
 
 interface IClient extends IEquipament {
     name: string;
