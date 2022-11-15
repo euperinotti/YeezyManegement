@@ -10,7 +10,7 @@ export interface iEquipament {
   serialNumber: string;
 }
 
-export const Equipament = database.define('Equipment', 
+const Equipament = database.define('Equipment', 
 {
   idequipamento: {
     type: Sequelize.INTEGER,
@@ -32,10 +32,10 @@ export const Equipament = database.define('Equipment',
   name: {
     type: Sequelize.STRING
   }
-}),
+})
 
-  getFromName: (name: string)=> iEquipament[]; {
-      await Equipament.findOne({ where: { name: "" } });
+  /*getFromName: (name: string)=> iEquipament[]; {
+      await Equipament.findOne({ where: { name: "roteador" } });
   }
 
   getFromSerialNumber: (serialNumber: string) => IEquipament[]; {
@@ -44,7 +44,7 @@ export const Equipament = database.define('Equipment',
 
   getFromPartNumber: (partNumber: number): IEquipament[] => {
     // Requisicao pelo numero de part do equipamento
-  },
+  },*/
 
 
 module.exports = Equipament

@@ -26,7 +26,7 @@
         name: "Roteador cisco 3"
      })
 
-  /*   const alterEquipment = await Equipment.findByPk(2)
+     /*const alterEquipment = await Equipment.findByPk(2)
      alterEquipment.serialNumber = "Arquivo Alterado"
      await alterEquipment.save()*/
 
@@ -40,3 +40,4 @@
      const findAllEquipment = await Equipment.findAll(2)
      console.log(findAllEquipment)
 })();
+
