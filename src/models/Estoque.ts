@@ -1,25 +1,23 @@
 const Sequelize = require('sequelize')
-
 const database = require('../../public/configdb')
 const Equipment = require('./Equipament.ts')
 import { iEquipament } from './Equipament'
 
-interface IClient extends iEquipament {
-    name: string;
-    cnpj: string;
-    clientId: number;
+interface IEstoque extends iEquipament {
+    quantidade: number;
+    descricao: string;
     equipament: iEquipament
 }
 
-const Cliente = database.define('Client', 
+const Estoques = database.define('Estoque', 
 {
-  idcliente: {
+  idestoque: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  cnpj: {
+  quantidade: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -27,9 +25,9 @@ const Cliente = database.define('Client',
     type: Sequelize.STRING,
     allowNull: false,   
   },
-  name: {
+  description: {
     type: Sequelize.STRING
   }
 })
 
-exports.module = Cliente
+exports.module = Estoques
