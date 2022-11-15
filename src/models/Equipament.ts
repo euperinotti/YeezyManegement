@@ -2,13 +2,13 @@ const Sequelize = require('sequelize')
 
 const database = require('../../public/configdb')
 
-/*export interface IEquipament {
+export interface IEquipament {
   name: string;
   description?: string;
   equipamentId: number;
   partNumber: number;
   serialNumber: string;
-}*/
+}
 
 const Equipament = database.define('Equipment', 
 {
