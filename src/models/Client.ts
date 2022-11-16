@@ -1,35 +1,36 @@
-const Sequelize = require('sequelize')
-
-const database = require('../../public/configdb')
-const Equipment = require('./Equipament.ts')
+import Sequelize, { Model, DataTypes } from 'sequelize';
+import { componentSequelize } from '../instances/mysql';
 import { iEquipament } from './Equipament'
 
-interface IClient extends iEquipament {
+interface IClient extends iEquipament, Model {
     name: string;
     cnpj: string;
-    clientId: number;
     equipament: iEquipament
 }
 
-const Cliente = database.define('Client', 
+const Cliente = componentSequelize.define<IClient>('Cliente', 
 {
   idcliente: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
   cnpj: {
-    type: Sequelize.STRING,
-    allowNull: false,
+    type: DataTypes.STRING,
+    allowNull: false
   },
   equipament_idequipament: {
-    type: Sequelize.STRING,
-    allowNull: false,   
+    type: DataTypes.STRING,
+    allowNull: false  
   },
   name: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   }
+}, {
+  tableName: 'Cliente',
+  timestamps: false
 })
 
 exports.module = Cliente

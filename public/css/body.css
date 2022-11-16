@@ -10,7 +10,6 @@
 }
 
 body {
-    height: 100vh;
     display: flex;
     align-items: flex-start;
     background-color: #f8f8f8;
@@ -150,4 +149,9 @@ form input[type="text"] {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    gap: 2rem;
+}
+
+.form-footer button {
+    height: 3rem;
 }

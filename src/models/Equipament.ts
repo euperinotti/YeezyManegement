@@ -1,37 +1,38 @@
-const Sequelize = require('sequelize')
+import { Model, DataTypes } from 'sequelize';
+import { componentSequelize } from '../instances/mysql';
 
-const database = require('../../public/configdb')
-
-export interface iEquipament {
+export interface iEquipament extends Model {
   name: string;
   description?: string;
-  equipamentId: number;
   partNumber: number;
   serialNumber: string;
 }
 
-const Equipament = database.define('Equipment', 
+export const Equipament = componentSequelize.define<iEquipament>('Equipament', 
 {
   idequipamento: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
   serialNumber: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   partNumber: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   description: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   },
   name: {
-    type: Sequelize.STRING
+    type: DataTypes.STRING
   }
+}, {
+  tableName: 'equipamentos',
+  timestamps: false
 })
 
   /*getFromName: (name: string)=> iEquipament[]; {
@@ -45,6 +46,3 @@ const Equipament = database.define('Equipment',
   getFromPartNumber: (partNumber: number): IEquipament[] => {
     // Requisicao pelo numero de part do equipamento
   },*/
-
-
-module.exports = Equipament
