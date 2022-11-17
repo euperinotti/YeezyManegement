@@ -1,12 +1,12 @@
 import { Model, DataTypes } from 'sequelize';
 import { componentSequelize } from '../instances/mysql';
 
-export interface iEquipament extends Model {
+/*export interface iEquipament extends Model {
   name: string;
   description?: string;
   partNumber: number;
   serialNumber: string;
-}
+}*/
 
 export const Equipament = componentSequelize.define<iEquipament>('Equipament', 
 {
