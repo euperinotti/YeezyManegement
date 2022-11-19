@@ -35,7 +35,7 @@
         </div>
     </div>
     <%- include('../partials/aside-menu.ejs') -%>
-    <div id="main-panel">
+    <div id="main-panel" class="main-content">
         <div class="panel-header">
             <div class="header-container">
                 <h1 class="header-raleway">Equipamentos</h1>
@@ -62,46 +62,17 @@
                     <th>Descrição</th>
                     <th>Ação</th>
                 </thead>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
+                <% for(i in teste){ %>
+                    <tr>
+                        <td><%= teste[i].idequipamento %></td>
+                        <td><%= teste[i].name %></td>
+                        <td><%= teste[i].serialNumber %></td>
+                        <td><%= teste[i].partNumber %></td>
+                        <td><%= teste[i].description %></td>
+                        <td>Excluir</td>
+                    </tr>
+                <% } %>
+                
             </table>
         </div>
 

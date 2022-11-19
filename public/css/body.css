@@ -155,3 +155,8 @@ form input[type="text"] {
 .form-footer button {
     height: 3rem;
 }
+
+
+.main-content {
+    width: calc(100% - 15.5rem);
+}

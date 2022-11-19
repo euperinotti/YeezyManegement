@@ -4,7 +4,8 @@ let menuText = document.querySelectorAll('.btn-aside p');
 let asideHeader = document.querySelector('.header');
 let closeAsideIcon = document.querySelector('.close-icon');
 let asideHeaderH1 = document.querySelector('.header h2');
-let asideButtonIcon = document.querySelectorAll('.btn-icon img')
+let asideButtonIcon = document.querySelectorAll('.btn-icon img');
+let mainContent = document.querySelector('.main-content');
 
 toggleArrow.addEventListener('click', () => {
 
@@ -25,7 +26,8 @@ function asideClosed(){
 
     closeAsideIcon.style.transform = 'rotate(180deg)';
     asideHeaderH1.innerHTML = 'YZY';
-    asideHeaderH1.style.fontSize = '1.3rem'
+    asideHeaderH1.style.fontSize = '1.3rem';
+    mainContent.style.width = '100%'
 }
 
 function asideOpen(){
@@ -37,5 +39,6 @@ function asideOpen(){
 
     closeAsideIcon.style.transform = 'rotate(0deg)';
     asideHeaderH1.innerHTML = 'YEEZY';
-    asideHeaderH1.style.fontSize = '2rem'
+    asideHeaderH1.style.fontSize = '2rem';
+    mainContent.style.width = 'calc(100% - 15.5rem)%';
 }
