@@ -8,7 +8,7 @@ interface IClient extends iEquipament, Model {
     equipament: iEquipament
 }
 
-const Cliente = componentSequelize.define<IClient>('Cliente', 
+export const Cliente = componentSequelize.define<IClient>('Cliente', 
 {
   idcliente: {
     type: DataTypes.INTEGER,
