@@ -10,7 +10,7 @@ interface IClient extends iEquipament, Model {
 
 export const Cliente = componentSequelize.define<IClient>('Cliente', 
 {
-  idcliente: {
+  idCliente: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
@@ -20,10 +20,10 @@ export const Cliente = componentSequelize.define<IClient>('Cliente',
     type: DataTypes.STRING,
     allowNull: false
   },
-  equipament_idequipament: {
+  /*equipament_idequipament: {
     type: DataTypes.STRING,
-    allowNull: false  
-  },
+    allowNull: true  W
+  },*/
   name: {
     type: DataTypes.STRING,
     allowNull: false
