@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
@@ -40,3 +41,13 @@ export const delete_things = async(req: Request, res: Response) => {
     })
 }
 
+
+/*UPDATE*/
+
+export const update_serialNumber = async(req: Request, res: Response) => {
+    let update_serialNumber = Equipament.update({
+        serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
+        {where: {idequipamento: req.params.idequipamento} 
+    }
+ )
+}
