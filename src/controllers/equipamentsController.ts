@@ -19,4 +19,4 @@ export const equipaments = async (req: Request, res: Response) => {
         pageName: 'Equipamentos',
         menu: selectedMenu('equipaments'),
     });
-}
+}   
