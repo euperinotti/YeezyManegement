@@ -9,6 +9,5 @@ routes.get('/', Home.home);
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
 routes.get('/clients', clients);
-// routes.get('/config', Rotas.configdb);
 
 export default routes
