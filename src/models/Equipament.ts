@@ -33,7 +33,7 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
     type: DataTypes.STRING
   }
 }, {
-  tableName: 'equipamento',
+  tableName: 'equipamentos',
   timestamps: false
 })
 
