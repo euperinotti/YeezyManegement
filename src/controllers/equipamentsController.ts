@@ -29,7 +29,7 @@ export const newEquipament = async (req: Request, res: Response) => {
     })
 
     res.redirect('/equipaments');
-
+}
 export const select_all_equipment = async (req: Request, res: Response) => {
     let equipment_select = await Equipament.findAll()
 }
@@ -70,7 +70,11 @@ export const delete_things = async(req: Request, res: Response) => {
 export const update_serialNumber = async(req: Request, res: Response) => {
     let update_serialNumber = Equipament.update({
         serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
-        {where: {idequipamento: req.params.idequipamento} 
+        {where: {
+            idequipamento: req.params.idequipamento
+            
+        } 
     }
  )
+    update_serialNumber
 }

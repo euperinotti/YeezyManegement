@@ -17,7 +17,7 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
     allowNull: false,
     primaryKey: true,
     defaultValue: true
-  },
+},
   serialNumber: {
     type: DataTypes.STRING,
     allowNull: false,
