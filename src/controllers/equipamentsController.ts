@@ -62,6 +62,7 @@ export const delete_things = async(req: Request, res: Response) => {
             idequipamento: req.params.idequipamento
         }
     })
+    delete_things
 }
 
 
@@ -72,7 +73,6 @@ export const update_serialNumber = async(req: Request, res: Response) => {
         serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
         {where: {
             idequipamento: req.params.idequipamento
-            
         } 
     }
  )
