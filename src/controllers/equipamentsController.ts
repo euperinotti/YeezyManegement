@@ -25,7 +25,8 @@ export const newEquipament = async (req: Request, res: Response) => {
         serialNumber: newSerialNumber,
         partNumber: newPartNumber,
         description: newDescription,
-        name: newName
+        name: newName,
+        status: 'Disponível'
     })
 
     res.redirect('/equipaments');

@@ -30,7 +30,12 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
     type: DataTypes.STRING
   },
   name: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, {
   tableName: 'equipamentos',
