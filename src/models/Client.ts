@@ -20,9 +20,10 @@ export const Cliente = componentSequelize.define<IClient>('Cliente',
     type: DataTypes.STRING,
     allowNull: false
   },
-  /*equipament_idequipament: {
+   /*equipament_idequipament: {
     type: DataTypes.STRING,
-    allowNull: true  W
+    allowNull: true,
+    defaultValue: true
   },*/
   name: {
     type: DataTypes.STRING,

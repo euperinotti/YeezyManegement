@@ -16,5 +16,18 @@ export const select_clients = async (req: Request, res: Response) => {
         menu: selectedMenu('clients'),
         clients
     });  
+}   
+
     
+/*CREATE*/ 
+export const newClient = async (req: Request, res: Response) => {
+    let newName = req.body.clientName;
+    let newCnpj = req.body.clientCnpj;
+
+    await Cliente.create({
+        name: newName,
+        cnpj: newCnpj,
+    })
+
+    res.redirect('/clients');
 }

@@ -10,7 +10,7 @@ routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
 routes.post('/updateequipamento', Equipaments.update_serialNumber);
 routes.get('/clients', Clients.select_clients);
-
+routes.post('/novocliente', Clients.newClient);
 
 
 export default routes
