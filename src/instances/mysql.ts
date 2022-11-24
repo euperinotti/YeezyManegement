@@ -1,12 +1,13 @@
 import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
 
-let MYSQL_DB = 'dbyeezy';
-let MYSQL_USER = 'root';
-let MYSQL_PASSWORD = '12345678';
-let MYSQL_PORT = 3306
+dotenv.config();
 
-export const componentSequelize = new Sequelize(MYSQL_DB, MYSQL_USER, MYSQL_PASSWORD,{
+export const componentSequelize = new Sequelize(
+    process.env.MYSQL_DB as string, 
+    process.env.MYSQL_USER as string, 
+    process.env.MYSQL_PASSWORD,{
     dialect: 'mysql',
     host: '127.0.0.1',
-    port: MYSQL_PORT
+    port: Number(process.env.MYSQL_PORT)
 });

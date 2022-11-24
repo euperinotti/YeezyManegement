@@ -4,6 +4,8 @@ import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
 
 export const home = async (req: Request, res: Response) => {
+    
+    // let searchQuery = document.querySelector('#left-search');
 
     let allEquipaments = await Equipament.findAll();
 

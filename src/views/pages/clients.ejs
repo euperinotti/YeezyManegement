@@ -1,26 +1,83 @@
-
 <%- include('../partials/head.ejs') -%>
-<link rel="stylesheet" href="css/cliente.css">
+<link rel="stylesheet" href="css/equipaments.css">
 </head>
 <body>
+    <div class="hidden-window">
+        <div class="panel-header">
+            <div class="header-container">
+                <h1 class="header-raleway">Novo Equipamento</h1>
+            </div>
+            <div class="panel-body">
+                <form action="/novoequipamento" method="post">
+                    <label for="equipament-name">
+                        Nome*: <br>
+                        <input type="text" name="equipamentName" id="equipament-name" required>
+                    </label>
+                    <label for="equipament-serial-number">
+                        Serial Number*: <br>
+                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" required>
+                    </label>
+                    <label for="equipament-part-number">
+                        Part Number*: <br>
+                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" required>
+                    </label>
+                    <label for="equipament-description">
+                        Descrição: <br>
+                        <input type="text" name="equipamentDescription" id="equipament-description">
+                    </label>
+                    <div class="form-footer">
+                        <button class="close-window btn-ghost">Cancelar</button>
+                        <button type="submit" class="btn-cta">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <%- include('../partials/aside-menu.ejs') -%>
- 
-        <form action="/pagina-processa-dados-do-form" method="post">
-            <div>
-                <label for="name">Nome:</label>
-                <input type="text" id="name" />
+    <div id="main-panel" class="main-content">
+        <div class="panel-header">
+            <div class="header-container">
+                <h1 class="header-raleway">Equipamentos</h1>
             </div>
-            <div>
-                <label for="mail">Estado:</label>
-                <input type="email" id="mail" />
+            <div class="panel-actions">
+                <div class="search-bar">
+                    <input type="search" name="equipament-search" placeholder="Pesquisar...">
+                    <button type="submit">
+                        <img src="icons/search.svg" alt="Pesquisar">
+                    </button>
+                </div>
+                <div class="add-equipament-div">
+                    <button class="add-equipament btn-ghost">Novo Equipamento</button>
+                </div>
             </div>
-            <div>
-                <label for="msg">Cliente:</label>
-                <textarea id="msg"></textarea>
-            </div>
-            <div class="button">
-                <button type="submit">Enviar sua mensagem</button>
-            </div>  
-    </forms>
+        </div>
+        <div class="panel-body">
+            <table>
+                <thead>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Serial Number</th>
+                    <th>Part Number</th>
+                    <th>Descrição</th>
+                    <th>Ação</th>
+                </thead>
+                <% for(i in clients) { %>
+                    <tr>
+                        <td><%= clients[i].idequipamento %> </td>
+                        <td><%= clients[i].name %> </td>
+                        <td><%= clients[i].serialNumber %> </td>
+                        <td><%= clients[i].partNumber %> </td>
+                        <td><%= clients[i].description %> </td>
+                        <td>
+                             <button onClick="">Excluir</button>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+
+    </div>
+
+    <script type="module" src="js/hiddenWindow.js"></script>
 </body>
 </html>
