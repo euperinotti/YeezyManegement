@@ -57,8 +57,10 @@
                         <td><%= clients[i].cnpj %> </td>
                         <td><%= clients[i].name %> </td>
                         <td>
-                             <button onClick="">Excluir</button>
-                        </td>
+                        <button id="delete-client" class="btn-text">
+                            <a href="/clients/delete-client/idCliente=idCliente=<%= clients[i].idCliente %>">Excluir</a>
+                        </button>
+                    </td>
                     </tr>
                 <% } %>
             </table>

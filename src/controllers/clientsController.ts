@@ -31,3 +31,13 @@ export const newClient = async (req: Request, res: Response) => {
 
     res.redirect('/clients');
 }
+
+/*DELETE*/ 
+export const delete_thing = async(req: Request, res: Response) => {
+    await Cliente.destroy({
+        where: {
+            idCliente: req.params.idCliente
+        }
+    })
+    res.redirect('/clients');
+}

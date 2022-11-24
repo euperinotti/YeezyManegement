@@ -12,6 +12,6 @@ routes.get('/equipaments/delete-equip/idequipamento=:idequipamento', Equipaments
 routes.post('/updateequipamento', Equipaments.update_serialNumber);
 routes.get('/clients', Clients.select_clients);
 routes.post('/novocliente', Clients.newClient);
-
+routes.get('/clients/delete-client/idCliente=:idCliente', Clients.delete_thing)
 
 export default routes
