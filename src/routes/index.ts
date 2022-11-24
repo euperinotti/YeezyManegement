@@ -9,9 +9,10 @@ routes.get('/', Home.home);
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
 routes.get('/equipaments/delete-equip/idequipamento=:idequipamento', Equipaments.delete_things);
-routes.post('/updateequipamento', Equipaments.update_serialNumber);
+routes.post('/updateequipamento', Equipaments.update_all);
 routes.get('/clients', Clients.select_clients);
 routes.post('/novocliente', Clients.newClient);
+routes.post('/updatecliente', Clients.update_all);
 routes.get('/clients/delete-client/idCliente=:idCliente', Clients.delete_thing)
 
 export default routes

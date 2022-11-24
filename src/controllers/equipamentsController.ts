@@ -48,13 +48,18 @@ export const delete_things = async(req: Request, res: Response) => {
 
 /*UPDATE*/
 
-export const update_serialNumber = async(req: Request, res: Response) => {
-    let update_serialNumber = Equipament.update({
-        serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
+export const update_all = async(req: Request, res: Response) => {
+    let update_all = Equipament.update({
+        serialNumber: req.body.serialNumber,
+        partNumber: req.body.partNumber,
+        description: req.body.description,
+        name: req.body.name,
+        status: req.body.status
+    },
         {where: {
             idequipamento: req.params.idequipamento
         } 
     }
  )
-    update_serialNumber
+    update_all
 }

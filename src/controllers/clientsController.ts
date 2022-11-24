@@ -41,3 +41,19 @@ export const delete_thing = async(req: Request, res: Response) => {
     })
     res.redirect('/clients');
 }
+
+/*UPDATE*/ 
+
+export const update_all = async(req: Request, res: Response) => {
+    let update_all = Cliente.update({
+        cnpj: req.body.clientCnpj,
+        name: req.body.name,
+     
+    },
+        {where: {
+            idCliente: req.params.idCliente
+        } 
+    }
+ )
+    update_all
+}
