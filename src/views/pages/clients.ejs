@@ -56,12 +56,13 @@
                         <td><%= clients[i].idCliente %> </td>
                         <td><%= clients[i].cnpj %> </td>
                         <td><%= clients[i].name %> </td>
+
                         <td>
                         <button id="delete-client" class="btn-text">
-                            <a href="/clients/delete-client/idCliente=idCliente=<%= clients[i].idCliente %>">Excluir</a>
+                            <a href="/clients/delete-client/idCliente=<%= clients[i].idCliente %>">Excluir</a>
                         </button>
                     </td>
-                    </tr>
+                </tr>
                 <% } %>
             </table>
         </div>
