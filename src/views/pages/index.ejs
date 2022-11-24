@@ -24,12 +24,12 @@
                 </button>
             </div>
             <div class="side-items">
-                <% for(i in allEquipaments) { %>
+                <% for(i in available_equipaments) { %>
                     <div class="item-box">
                         <div class="item-details">
-                            <h2><%= allEquipaments[i].name %></h2>
-                            <h3><%= allEquipaments[i].description %></h3>
-                            <h3><%= allEquipaments[i].serialNumber%></h3>
+                            <h2><%= available_equipaments[i].name %></h2>
+                            <h3><%= available_equipaments[i].description %></h3>
+                            <h3><%= available_equipaments[i].serialNumber%></h3>
                         </div>
                         <div class="item-status"></div>
                         <div class="item-expand"></div>
@@ -60,15 +60,17 @@
                 </button>
             </div>
             <div class="side-items">
-                <div class="item-box">
-                    <div class="item-details">
-                        <h2>Nome</h2>
-                        <h3>Estado: XXXXX</h3>
-                        <h3>Cliente: XXXXX</h3>
+                <% for(i in ocuped_equipmanets) { %>
+                    <div class="item-box">
+                        <div class="item-details">
+                            <h2><%= ocuped_equipmanets[i].name %></h2>
+                            <h3><%= ocuped_equipmanets[i].description %></h3>
+                            <h3><%= ocuped_equipmanets[i].serialNumber%></h3>
+                        </div>
+                        <div class="item-status"></div>
+                        <div class="item-expand"></div>
                     </div>
-                    <div class="item-status"></div>
-                    <div class="item-expand"></div>
-                </div>
+                <% } %>
             </div>
         </div>
     </div>

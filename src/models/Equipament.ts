@@ -7,6 +7,7 @@ export interface iEquipament extends Model {
   description?: string;
   partNumber: string;
   serialNumber: string;
+  status: string;
 }
 
 export const Equipament = componentSequelize.define<iEquipament>('Equipament', 
@@ -31,6 +32,10 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
   },
   name: {
     type: DataTypes.STRING
+  },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: false,
   }
 }, {
   tableName: 'equipamentos',

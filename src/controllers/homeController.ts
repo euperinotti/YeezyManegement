@@ -2,17 +2,27 @@ import { Request, Response } from 'express';
 import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
+import { componentSequelize } from '../instances/mysql';
+import { Sequelize } from 'sequelize';
 
-export const home = async (req: Request, res: Response) => {
-    
+
+export const home = async (req: Request, res: Response) => { 
     // let searchQuery = document.querySelector('#left-search');
-
-    let allEquipaments = await Equipament.findAll();
-
+    let available_equipaments = await Equipament.findAll({
+      where:{
+        status: 'disponivel'
+      }
+    });
+    let ocuped_equipmanets = await Equipament.findAll({
+        where:{
+          status: 'ocupado'
+        }
+    })
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
         pageName: 'Home',
         menu: selectedMenu('home'),
-        allEquipaments
+        available_equipaments,
+        ocuped_equipmanets
     });
 }
 
