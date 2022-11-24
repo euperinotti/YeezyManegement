@@ -34,8 +34,9 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
     type: DataTypes.STRING
   },
   status: {
-    type: DataTypes.STRING,
+    type: DataTypes.ENUM('Disponivel', 'Ocupado'),
     allowNull: false,
+    defaultValue: "Disponivel"
   }
 }, {
   tableName: 'equipamentos',

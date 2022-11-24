@@ -59,12 +59,13 @@ export const equipment_name = async(req: Request, res: Response) =>{
 /*DELETE*/
 
 export const delete_things = async(req: Request, res: Response) => {
-    let delete_things = await Equipament.destroy({
+    await Equipament.destroy({
         where: {
             idequipamento: req.params.idequipamento
         }
     })
-    delete_things
+
+    res.redirect('/equipaments');
 }
 
 

@@ -27,7 +27,10 @@
                     </label>
                     <label for="equipament-Status">
                         Status*: <br>
-                        <input type="text" name="equipamentStatus" id="equipament-Status" required>
+                        <select name="equipamentStatus" id="equipament-Status">
+                            <option value="Disponivel" selected>Disponivel</option>
+                            <option value="Ocupado">Ocupado</option>
+                        </select>
                     </label>
                     <div class="form-footer">
                         <button class="close-window btn-ghost">Cancelar</button>
@@ -62,7 +65,7 @@
                     <th>Nome</th>
                     <th>Serial Number</th>
                     <th>Part Number</th>
-                    <th>Descrição</th>
+                    <th>Status</th>
                     <th>Ação</th>
                 </thead>
                 <% for(i in equipamentos) { %>
@@ -71,10 +74,12 @@
                         <td><%= equipamentos[i].name %> </td>
                         <td><%= equipamentos[i].serialNumber %> </td>
                         <td><%= equipamentos[i].partNumber %> </td>
-                        <td><%= equipamentos[i].description %> </td>
+                        <td><%= equipamentos[i].status %> </td>
 
                         <td>
-                             <button onClick="">Excluir</button>
+                             <button id="delete-equipament" class="btn-text">
+                                <a href="/equipaments/delete-equip/idequipamento=<%= equipamentos[i].idequipamento %>">Excluir</a>
+                            </button>
                         </td>
                     </tr>
                 <% } %>
