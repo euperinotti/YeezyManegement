@@ -5,8 +5,9 @@ import { componentSequelize } from '../instances/mysql';
 export interface iEquipament extends Model {
   name: string;
   description?: string;
-  partNumber: number;
+  partNumber: string;
   serialNumber: string;
+  status: string;
 }
 
 export const Equipament = componentSequelize.define<iEquipament>('Equipament', 
@@ -15,8 +16,9 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
-    primaryKey: true
-  },
+    primaryKey: true,
+    defaultValue: false
+},
   serialNumber: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -30,6 +32,11 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
   },
   name: {
     type: DataTypes.STRING
+  },
+  status: {
+    type: DataTypes.ENUM('Disponivel', 'Ocupado'),
+    allowNull: false,
+    defaultValue: "Disponivel"
   }
 }, {
   tableName: 'equipamentos',

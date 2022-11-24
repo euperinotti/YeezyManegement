@@ -90,6 +90,19 @@ button {
     padding: var(--spacing-ss);
 }
 
+.btn-text a {
+    color: var(--violet);
+}
+
+.btn-text {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    color: var(--violet);
+    width: max-content;
+    padding: var(--spacing-ss);
+}
+
 .btn-cta {
     font-family: 'Raleway';
     font-weight: 500;
@@ -135,13 +148,14 @@ form label {
     color: var(--purple);
 }
 
-form input[type="text"] {
+form input[type="text"], form select {
     border: 4px solid var(--violet-2);
     border-radius: 0.5rem;
     height: 3rem;
     width: 100%;
     padding: 0rem var(--spacing-s);
     font-size: var(--font-size-sm);
+    font-family: 'Raleway';
 }
 
 .form-footer {
@@ -154,4 +168,8 @@ form input[type="text"] {
 
 .form-footer button {
     height: 3rem;
+}
+
+.main-content {
+    width: calc(100% - 15.5rem);
 }

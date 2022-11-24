@@ -8,22 +8,29 @@
                 <h1 class="header-raleway">Novo Equipamento</h1>
             </div>
             <div class="panel-body">
-                <form action="" method="post">
+                <form action="/novoequipamento" method="post">
                     <label for="equipament-name">
                         Nome*: <br>
-                        <input type="text" name="equipament-name" id="equipament-name" required>
+                        <input type="text" name="equipamentName" id="equipament-name" required>
                     </label>
                     <label for="equipament-serial-number">
                         Serial Number*: <br>
-                        <input type="text" name="equipament-serial-number" id="equipament-serial-number" required>
+                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" required>
                     </label>
                     <label for="equipament-part-number">
                         Part Number*: <br>
-                        <input type="text" name="equipament-part-number" id="equipament-part-number" required>
+                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" required>
                     </label>
                     <label for="equipament-description">
                         Descrição: <br>
-                        <input type="text" name="equipament-description" id="equipament-description">
+                        <input type="text" name="equipamentDescription" id="equipament-description">
+                    </label>
+                    <label for="equipament-Status">
+                        Status*: <br>
+                        <select name="equipamentStatus" id="equipament-Status">
+                            <option value="Disponivel" selected>Disponivel</option>
+                            <option value="Ocupado">Ocupado</option>
+                        </select>
                     </label>
                     <div class="form-footer">
                         <button class="close-window btn-ghost">Cancelar</button>
@@ -34,7 +41,7 @@
         </div>
     </div>
     <%- include('../partials/aside-menu.ejs') -%>
-    <div id="main-panel">
+    <div id="main-panel" class="main-content">
         <div class="panel-header">
             <div class="header-container">
                 <h1 class="header-raleway">Equipamentos</h1>
@@ -58,49 +65,24 @@
                     <th>Nome</th>
                     <th>Serial Number</th>
                     <th>Part Number</th>
-                    <th>Descrição</th>
+                    <th>Status</th>
                     <th>Ação</th>
                 </thead>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Produto</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>8585885</td>
-                    <td>Excluir</td>
-                </tr>
+                <% for(i in equipamentos) { %>
+                    <tr>
+                        <td><%= equipamentos[i].idequipamento %> </td>
+                        <td><%= equipamentos[i].name %> </td>
+                        <td><%= equipamentos[i].serialNumber %> </td>
+                        <td><%= equipamentos[i].partNumber %> </td>
+                        <td><%= equipamentos[i].status %> </td>
+
+                        <td>
+                             <button id="delete-equipaments" class="btn-text">
+                                <a href="/equipaments/delete-equip/idequipamento=<%= equipamentos[i].idequipamento %>">Excluir</a>
+                            </button>
+                        </td>
+                    </tr>
+                <% } %>
             </table>
         </div>
 

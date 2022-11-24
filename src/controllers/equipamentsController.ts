@@ -3,9 +3,34 @@ import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
 
+export const index = async (req: Request, res: Response) => {
 
-/*SELECT*/
+    let equipamentos = await Equipament.findAll();
 
+    res.render(path.join(__dirname, '../views/pages/equipaments.ejs'), {
+        pageName: 'Equipamentos',
+        menu: selectedMenu('equipaments'),
+        equipamentos
+    });
+}
+
+export const newEquipament = async (req: Request, res: Response) => {
+    let newName = req.body.equipamentName;
+    let newSerialNumber = req.body.equipamentSerialNumber;
+    let newPartNumber = req.body.equipamentPartNumber;
+    let newDescription = req.body.equipamentDescription;
+    let newStatus = req.body.equipamentStatus;
+
+    await Equipament.create({
+        serialNumber: newSerialNumber,
+        partNumber: newPartNumber,
+        description: newDescription,
+        name: newName,
+        status: newStatus
+    })
+
+    res.redirect('/equipaments');
+}
 export const select_all_equipment = async (req: Request, res: Response) => {
     let equipment_select = await Equipament.findAll()
 }
@@ -33,11 +58,13 @@ export const equipment_name = async(req: Request, res: Response) =>{
 /*DELETE*/
 
 export const delete_things = async(req: Request, res: Response) => {
-    let delete_things = await Equipament.destroy({
+    await Equipament.destroy({
         where: {
             idequipamento: req.params.idequipamento
         }
     })
+
+    res.redirect('/equipaments');
 }
 
 
@@ -46,15 +73,10 @@ export const delete_things = async(req: Request, res: Response) => {
 export const update_serialNumber = async(req: Request, res: Response) => {
     let update_serialNumber = Equipament.update({
         serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
-        {where: {idequipamento: req.params.idequipamento} 
+        {where: {
+            idequipamento: req.params.idequipamento
+        } 
     }
  )
-}
-
-export const update_partNumber = async(req: Request, res: Response) => {
-    let update_serialNumber = Equipament.update({
-        serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
-        {where: {idequipamento: req.params.idequipamento} 
-    }
- )
+    update_serialNumber
 }

@@ -1,17 +1,15 @@
 #menu-container {
-    width: calc(100% - 15.5rem);
-    height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
-    margin: var(--spacing-m);
+    padding: var(--spacing-m);
     gap: var(--spacing-s);
-    height: fit-content;
+    height: calc(100vh - var(--spacing-m));
 }
 
 .left-side {
     gap: 1rem;
-    height: 100%;
+    height: calc(100vh - var(--spacing-m));
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -63,10 +61,10 @@
 
 .side-items {
     overflow-y: scroll;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 }
 
 .item-box {
@@ -76,9 +74,10 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 1rem;
+    margin: 0 0 1rem 0;
 }
 
-.side-items::-webkit-scrollbar {
+::-webkit-scrollbar {
     display: none;
     width: 0;
 }
@@ -95,7 +94,7 @@
 }
 
 .line-divisor {
-    height: 100%;
+    height: 50%;
     background-color: var(--violet);
     width: 2px;
 }
