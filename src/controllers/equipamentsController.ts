@@ -31,29 +31,7 @@ export const newEquipament = async (req: Request, res: Response) => {
 
     res.redirect('/equipaments');
 }
-export const select_all_equipment = async (req: Request, res: Response) => {
-    let equipment_select = await Equipament.findAll()
-}
-export const id_equipament = async(req: Request, res: Response) =>{
-    let id_equipament = await Equipament.findAll({
-        attributes: ['idequipamento']
-    })
-}
-export const serial_number = async(req: Request, res: Response) =>{
-    let serial_number = await Equipament.findAll({
-        attributes: ['serialNumber']
-    })
-}
-export const description = async(req: Request, res: Response) =>{
-    let description = await Equipament.findAll({
-        attributes: ['description']
-    })
-}
-export const equipment_name = async(req: Request, res: Response) =>{
-    let equipment_name = await Equipament.findAll({
-        attributes: ['name']
-    })
-}   
+
 
 /*DELETE*/
 
