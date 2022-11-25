@@ -6,6 +6,11 @@ import { componentSequelize } from '../instances/mysql';
 import { Sequelize } from 'sequelize';
 
 
+
+type Sort = {
+  sortType: "name" | "type" | "marca"
+}
+
 export const home = async (req: Request, res: Response) => { 
     // let searchQuery = document.querySelector('#left-search');
     let available_equipaments = await Equipament.findAll({

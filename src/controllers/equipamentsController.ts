@@ -15,18 +15,21 @@ export const index = async (req: Request, res: Response) => {
 }
 
 export const newEquipament = async (req: Request, res: Response) => {
+
     let newName = req.body.equipamentName;
     let newSerialNumber = req.body.equipamentSerialNumber;
     let newPartNumber = req.body.equipamentPartNumber;
     let newDescription = req.body.equipamentDescription;
     let newStatus = req.body.equipamentStatus;
+    let newQuantidade = req.body.equipamentQuantidade;
 
     await Equipament.create({
         serialNumber: newSerialNumber,
         partNumber: newPartNumber,
         description: newDescription,
         name: newName,
-        status: newStatus
+        status: newStatus,
+        quantidade: newQuantidade
     })
 
     res.redirect('/equipaments');
