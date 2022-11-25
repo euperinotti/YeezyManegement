@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
+import { Model } from 'sequelize';
 import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
-import { Equipament } from '../models/Equipament';
+import { Equipament, IEquipament } from '../models/Equipament';
 
 export const index = async (req: Request, res: Response) => {
 
@@ -16,21 +17,17 @@ export const index = async (req: Request, res: Response) => {
 
 export const newEquipament = async (req: Request, res: Response) => {
 
-    let newName = req.body.equipamentName;
-    let newSerialNumber = req.body.equipamentSerialNumber;
-    let newPartNumber = req.body.equipamentPartNumber;
-    let newDescription = req.body.equipamentDescription;
-    let newStatus = req.body.equipamentStatus;
-    let newQuantidade = req.body.equipamentQuantidade;
+    const newEquipament: IEquipament = {
+        name: req.body.equipamentName,
+        description: req.body.equipamentDescription,
+        partNumber: req.body.equipamentPartNumber,
+        serialNumber: req.body.equipamentSerialNumber,
+        status: req.body.equipamentStatus,
+        quantidade: req.body.equipamentQuantidade,
+        type: req.body.equipamentType
+    }
 
-    await Equipament.create({
-        serialNumber: newSerialNumber,
-        partNumber: newPartNumber,
-        description: newDescription,
-        name: newName,
-        status: newStatus,
-        quantidade: newQuantidade
-    })
+    await Equipament.create({ newEquipament })
 
     res.redirect('/equipaments');
 }
