@@ -5,25 +5,17 @@
     <div class="hidden-window">
         <div class="panel-header">
             <div class="header-container">
-                <h1 class="header-raleway">Novo Equipamento</h1>
+                <h1 class="header-raleway">Novo Cliente</h1>
             </div>
             <div class="panel-body">
-                <form action="/novoequipamento" method="post">
-                    <label for="equipament-name">
+                <form action="/novocliente" method="post">
+                    <label for="client-name">
                         Nome*: <br>
-                        <input type="text" name="equipamentName" id="equipament-name" required>
+                        <input type="text" name="clientName" id="client-name" required>
                     </label>
-                    <label for="equipament-serial-number">
-                        Serial Number*: <br>
-                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" required>
-                    </label>
-                    <label for="equipament-part-number">
-                        Part Number*: <br>
-                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" required>
-                    </label>
-                    <label for="equipament-description">
-                        Descrição: <br>
-                        <input type="text" name="equipamentDescription" id="equipament-description">
+                    <label for="client-Cnpj">
+                        cnpj: <br>
+                        <input type="number" name="clientCnpj" id="client-Cnpj" required>
                     </label>
                     <div class="form-footer">
                         <button class="close-window btn-ghost">Cancelar</button>
@@ -37,7 +29,7 @@
     <div id="main-panel" class="main-content">
         <div class="panel-header">
             <div class="header-container">
-                <h1 class="header-raleway">Equipamentos</h1>
+                <h1 class="header-raleway">Cliente</h1>
             </div>
             <div class="panel-actions">
                 <div class="search-bar">
@@ -47,7 +39,7 @@
                     </button>
                 </div>
                 <div class="add-equipament-div">
-                    <button class="add-equipament btn-ghost">Novo Equipamento</button>
+                    <button class="add-equipament btn-ghost">Novo Cliente</button>
                 </div>
             </div>
         </div>
@@ -56,22 +48,21 @@
                 <thead>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>Serial Number</th>
-                    <th>Part Number</th>
-                    <th>Descrição</th>
+                    <th>CNPJ</th>
                     <th>Ação</th>
                 </thead>
                 <% for(i in clients) { %>
                     <tr>
-                        <td><%= clients[i].idequipamento %> </td>
+                        <td><%= clients[i].idCliente %> </td>
+                        <td><%= clients[i].cnpj %> </td>
                         <td><%= clients[i].name %> </td>
-                        <td><%= clients[i].serialNumber %> </td>
-                        <td><%= clients[i].partNumber %> </td>
-                        <td><%= clients[i].description %> </td>
+
                         <td>
-                             <button onClick="">Excluir</button>
-                        </td>
-                    </tr>
+                        <button id="delete-client" class="btn-text"> 
+                            <a href="/clients/delete-client/idCliente=<%= clients[i].idCliente %>">Excluir</a>
+                        </button>
+                    </td>
+                </tr>
                 <% } %>
             </table>
         </div>

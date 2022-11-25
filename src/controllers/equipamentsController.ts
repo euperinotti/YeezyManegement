@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-
+import { Model } from 'sequelize';
 import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
-import { Equipament } from '../models/Equipament';
+import { Equipament, IEquipament } from '../models/Equipament';
 
 export const index = async (req: Request, res: Response) => {
 
@@ -16,66 +16,50 @@ export const index = async (req: Request, res: Response) => {
 }
 
 export const newEquipament = async (req: Request, res: Response) => {
-    let newName = req.body.equipamentName;
-    let newSerialNumber = req.body.equipamentSerialNumber;
-    let newPartNumber = req.body.equipamentPartNumber;
-    let newDescription = req.body.equipamentDescription;
 
-    await Equipament.create({
-        serialNumber: newSerialNumber,
-        partNumber: newPartNumber,
-        description: newDescription,
-        name: newName,
-        status: 'Disponível'
-    })
+    const newEquipament: IEquipament = {
+        name: req.body.equipamentName,
+        description: req.body.equipamentDescription,
+        partNumber: req.body.equipamentPartNumber,
+        serialNumber: req.body.equipamentSerialNumber,
+        status: req.body.equipamentStatus,
+        quantidade: req.body.equipamentQuantidade,
+        type: req.body.equipamentType
+    }
+
+    await Equipament.create({ newEquipament })
 
     res.redirect('/equipaments');
 }
-export const select_all_equipment = async (req: Request, res: Response) => {
-    let equipment_select = await Equipament.findAll()
-}
-export const id_equipament = async(req: Request, res: Response) =>{
-    let id_equipament = await Equipament.findAll({
-        attributes: ['idequipamento']
-    })
-}
-export const serial_number = async(req: Request, res: Response) =>{
-    let serial_number = await Equipament.findAll({
-        attributes: ['serialNumber']
-    })
-}
-export const description = async(req: Request, res: Response) =>{
-    let description = await Equipament.findAll({
-        attributes: ['description']
-    })
-}
-export const equipment_name = async(req: Request, res: Response) =>{
-    let equipment_name = await Equipament.findAll({
-        attributes: ['name']
-    })
-}   
+
 
 /*DELETE*/
 
 export const delete_things = async(req: Request, res: Response) => {
-    let delete_things = await Equipament.destroy({
+    await Equipament.destroy({
         where: {
             idequipamento: req.params.idequipamento
         }
     })
-    delete_things
+
+    res.redirect('/equipaments');
 }
 
 
 /*UPDATE*/
 
-export const update_serialNumber = async(req: Request, res: Response) => {
-    let update_serialNumber = Equipament.update({
-        serialNumber: req.body./*definironomedaclasseprafazer o update*/serialNumber},
+export const update_all = async(req: Request, res: Response) => {
+    let update_all = Equipament.update({
+        serialNumber: req.body.serialNumber,
+        partNumber: req.body.partNumber,
+        description: req.body.description,
+        name: req.body.name,
+        status: req.body.status
+    },
         {where: {
             idequipamento: req.params.idequipamento
         } 
     }
  )
-    update_serialNumber
+    update_all
 }
