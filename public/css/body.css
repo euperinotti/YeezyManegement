@@ -71,12 +71,17 @@ button {
     font-size: var(--font-size-sm);
 }
 
-.search-bar a {
+.search-bar button {
     width: 3rem;
 }
 
-.search-bar a img {
+.search-bar button img {
     height: 1.75rem;
+}
+
+.search-bar form {
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .btn-ghost {

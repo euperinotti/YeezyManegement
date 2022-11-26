@@ -46,10 +46,7 @@
 .filter {
     width: 6rem;
     height: 2.5rem;
-}
-
-.filter select {
-    width: 100%;
+    width: fit-content;
     font-size: 1rem;
 }
 
