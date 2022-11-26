@@ -6,6 +6,7 @@ let closeAsideIcon = document.querySelector('.close-icon');
 let asideHeaderH1 = document.querySelector('.header h2');
 let asideButtonIcon = document.querySelectorAll('.btn-icon img');
 let mainContent = document.querySelector('.main-content');
+let asideStatus = 'open';
 
 toggleArrow.addEventListener('click', () => {
 
@@ -27,12 +28,13 @@ function asideClosed(){
     closeAsideIcon.style.transform = 'rotate(180deg)';
     asideHeaderH1.innerHTML = 'YZY';
     asideHeaderH1.style.fontSize = '1.3rem';
-    mainContent.style.width = '100%'
+    mainContent.style.width = '100%';
 }
 
 function asideOpen(){
     aside.classList.remove('aside-close');
-    aside.classList.add('aside-full');  
+    aside.classList.add('aside-full');
+
     menuText.forEach(element => {
         element.style.display = 'block';
     });

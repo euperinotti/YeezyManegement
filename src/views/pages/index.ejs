@@ -1,80 +1,126 @@
 <%- include('../partials/head.ejs') %>
-<link rel="stylesheet" href="css/home.css">
-</head>
-<body>
-    <%- include('../partials/aside-menu.ejs') %>   
-    <div id="menu-container" class="main-content">
-        <div class="left-side">
-            <div class="side-header">
-                <h1 class="header-franklin">DISPONÍVEIS</h1>
-            </div>
-            <div class="side-search-options">
-                <div class="search-bar">
-                    <input type="search" name="availableSearchBar" placeholder="Pesquisar..." id="left-search">
-                    <button type="submit">
-                        <img src="icons/search.svg" alt="Pesquisar">
-                    </button>
-                </div>
-                <button class="filter">
-                    <select name="filter-select">
-                        <option value="name">Nome</option>
-                        <option value="type">Tipo</option>
-                        <option value="brand">Marca</option>
-                    </select>
-                </button>
-            </div>
-            <div class="side-items">
-                <% for(i in available_equipaments) { %>
-                    <div class="item-box">
-                        <div class="item-details">
-                            <h2><%= available_equipaments[i].name %></h2>
-                            <h3><%= available_equipaments[i].description %></h3>
-                            <h3><%= available_equipaments[i].serialNumber%></h3>
-                        </div>
-                        <div class="item-status"></div>
-                        <div class="item-expand"></div>
+    <link rel="stylesheet" href="css/home.css">
+    </head>
+
+    <body>
+        <%- include('../partials/aside-menu.ejs') %>
+            <div id="menu-container" class="main-content">
+                <div class="left-side">
+                    <div class="side-header">
+                        <h1 class="header-franklin">DISPONÍVEIS</h1>
                     </div>
-                <% } %>
-            </div>
-        </div>
-
-        <div class="line-divisor"></div>
-
-        <div class="left-side">
-            <div class="side-header">
-                <h1 class="header-franklin">OCUPADOS</h1>
-            </div>
-            <div class="side-search-options">
-                <div class="search-bar">
-                    <input type="search" name="available-search-bar" placeholder="Pesquisar...">
-                    <button type="submit">
-                        <img src="icons/search.svg" alt="Pesquisar">
-                    </button>
-                </div>
-                <button class="filter">
-                    <select name="filter-select">
-                        <option value="name">Nome</option>
-                        <option value="type">Tipo</option>
-                        <option value="brand">Marca</option>
-                    </select>
-                </button>
-            </div>
-            <div class="side-items">
-                <% for(i in ocuped_equipmanets) { %>
-                    <div class="item-box">
-                        <div class="item-details">
-                            <h2><%= ocuped_equipmanets[i].name %></h2>
-                            <h3><%= ocuped_equipmanets[i].description %></h3>
-                            <h3><%= ocuped_equipmanets[i].serialNumber%></h3>
+                    <div class="side-search-options">
+                        <div class="search-bar">
+                            <form action="/available-result" method="GET">
+                                <input type="search" name="availableSearchBar" placeholder="Pesquisar..."
+                                    id="left-search">
+                                <button type="submit">
+                                    <img src="icons/search.svg" alt="Pesquisar">
+                                </button>
+                            </form>
                         </div>
-                        <div class="item-status"></div>
-                        <div class="item-expand"></div>
+                        <select name="filter-select" class="filter">
+                            <option value="name">Nome</option>
+                            <option value="type">Tipo</option>
+                            <option value="brand">Marca</option>
+                        </select>
                     </div>
-                <% } %>
-            </div>
-        </div>
-    </div>
+                    <div class="side-items">
+                        <% if (locals.searchQuery) { %>
+                            <% for(i in availableEquipaments) { %>
+                                <div class="item-box">
+                                    <div class="item-details">
+                                        <h2>
+                                            <%= availableEquipaments[i].name %>
+                                        </h2>
+                                        <h3>
+                                            <%= availableEquipaments[i].status %>
+                                        </h3>
+                                        <h3>
+                                            <%= availableEquipaments[i].serialNumber%>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% } else if (locals.allEquipaments){%>
+                                        <% for(i in allEquipaments) { %>
+                                            <% if (allEquipaments[i].status === 'Disponível') { %>
+                                            <div class="item-box">
+                                                <div class="item-details">
+                                                    <h2>
+                                                        <%=allEquipaments[i].name %>
+                                                    </h2>
+                                                    <h3>
+                                                        <%=allEquipaments[i].status %>
+                                                    </h3>
+                                                    <h3>
+                                                        <%=allEquipaments[i].serialNumber%>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                            <% } } } %>
+                    </div>
+                </div>
 
-   <script type="module" src="configdb.js"></script> 
-</body>
-</html>
+                <div class="line-divisor"></div>
+
+                <div class="left-side">
+                    <div class="side-header">
+                        <h1 class="header-franklin">OCUPADOS</h1>
+                    </div>
+                    <div class="side-search-options">
+                        <div class="search-bar">
+                            <input type="search" name="available-search-bar" placeholder="Pesquisar...">
+                            <button type="submit">
+                                <img src="icons/search.svg" alt="Pesquisar">
+                            </button>
+                        </div>
+                        <select name="filter-select" class="filter">
+                            <option value="name">Nome</option>
+                            <option value="type">Tipo</option>
+                            <option value="brand">Marca</option>
+                        </select>
+                    </div>
+                    <div class="side-items">
+                        <% if (locals.searchQuery) { %>
+                            <% for(i in availableEquipaments) { %>
+                                <div class="item-box">
+                                    <div class="item-details">
+                                        <h2>
+                                            <%= availableEquipaments[i].name %>
+                                        </h2>
+                                        <h3>
+                                            <%= availableEquipaments[i].status %>
+                                        </h3>
+                                        <h3>
+                                            <%= availableEquipaments[i].serialNumber%>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% } else if (locals.allEquipaments){%>
+                                        <% for(i in allEquipaments) { %>
+                                            <% if (allEquipaments[i].status === 'Ocupado') { %>
+                                            <div class="item-box">
+                                                <div class="item-details">
+                                                    <h2>
+                                                        <%=allEquipaments[i].name %>
+                                                    </h2>
+                                                    <h3>
+                                                        <%=allEquipaments[i].status %>
+                                                    </h3>
+                                                    <h3>
+                                                        <%=allEquipaments[i].serialNumber%>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                            <% } } } %>
+                    </div>
+
+                </div>
+            </div>
+
+            <script type="module" src="configdb.js"></script>
+    </body>
+
+    </html>

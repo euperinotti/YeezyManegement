@@ -2,16 +2,17 @@ import { Model, DataTypes } from 'sequelize';
 import { componentSequelize } from '../instances/mysql';
 
 
-export interface iEquipament extends Model {
+export interface IEquipament extends Model {
   name: string;
   description?: string;
   partNumber: string;
   serialNumber: string;
-  status: string;
+  status: "Disponível" | "Ocupado";
+  type: string;
   quantidade: number;
 }
 
-export const Equipament = componentSequelize.define<iEquipament>('Equipament', 
+export const Equipament = componentSequelize.define<IEquipament>('Equipament', 
 {
   idequipamento: {
     type: DataTypes.INTEGER,
@@ -32,15 +33,21 @@ export const Equipament = componentSequelize.define<iEquipament>('Equipament',
     type: DataTypes.STRING
   },
   name: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   },
   status: {
     type: DataTypes.ENUM('Disponivel', 'Ocupado'),
     allowNull: false,
     defaultValue: "Disponivel"
   },
+  type: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   quantidade: {
-    type: DataTypes.INTEGER
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 }, {
   tableName: 'equipamentos',

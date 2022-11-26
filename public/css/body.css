@@ -79,6 +79,11 @@ button {
     height: 1.75rem;
 }
 
+.search-bar form {
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
 .btn-ghost {
     font-family: 'Raleway';
     font-weight: 500;
