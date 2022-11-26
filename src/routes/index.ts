@@ -6,7 +6,7 @@ import * as Clients from "../controllers/clientsController"
 const routes = Router();
 
 routes.get('/', Home.home);
-routes.get('/available-result', Home.searchHome);
+routes.get('/search-result', Home.searchHome);
 
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);

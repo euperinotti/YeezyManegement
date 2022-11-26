@@ -2,40 +2,69 @@ import { Request, Response } from 'express';
 import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
-import { componentSequelize } from '../instances/mysql';
-import { Sequelize, Op } from 'sequelize';
+import { Op } from 'sequelize';
 
 type Sort = {
     sortType: "name" | "type" | "marca"
 }
 
+const searchResults = async (query?: string, status?: 'Disponivel' | 'Ocupado') => {
+
+    let availableEquipaments = await Equipament.findAll({
+        where: {
+            status: ['Disponivel']
+        }
+    });
+
+    let occupiedEquipaments = await Equipament.findAll({
+        where: {
+            status: ['Ocupado']
+        }
+    });
+
+    if(query != null && status === 'Disponivel'){
+        availableEquipaments = await Equipament.findAll({
+            where: {
+                name: {
+                    [Op.like]: [`%${query}%`]
+                },
+                status: ['Disponivel']
+            }
+        });
+    }
+
+    if(query != null && status === 'Ocupado'){
+        occupiedEquipaments = await Equipament.findAll({
+            where: {
+                name: {
+                    [Op.like]: [`%${query}%`]
+                },
+                status: ['Ocupado']
+            }
+        });
+    }
+
+    return { availableEquipaments, occupiedEquipaments }
+}
+
 export const home = async (req: Request, res: Response) => {
-    // let searchQuery = document.querySelector('#left-search');
-    const allEquipaments = await Equipament.findAll();
 
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
         pageName: 'Home',
         menu: selectedMenu('home'),
-        allEquipaments
+        availableEquipaments: (await searchResults()).availableEquipaments,
+        occupiedEquipaments: (await searchResults()).occupiedEquipaments
     });
 }
 
 export const searchHome = async (req: Request, res: Response) => {
-    let searchQuery = req.query.availableSearchBar;
-    console.log(searchQuery)
-
-    const availableEquipaments = await Equipament.findAll({
-        where: {
-            name: {
-                [Op.like]: `%${searchQuery}%`
-            }
-        }
-    });
+    let availableQuery = req.query.availableSearchBar as string;
+    let occupiedQuery = req.query.occupiedSearchBar as string
 
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
         pageName: 'Home',
         menu: selectedMenu('home'),
-        searchQuery,
-        availableEquipaments
+        availableEquipaments: (await searchResults(availableQuery, 'Disponivel')).availableEquipaments,
+        occupiedEquipaments: (await searchResults(occupiedQuery, 'Ocupado')).occupiedEquipaments
     });
 }
