@@ -10,10 +10,12 @@
             </div>
             <div class="side-search-options">
                 <div class="search-bar">
-                    <input type="search" name="availableSearchBar" placeholder="Pesquisar..." id="left-search">
-                    <button type="submit">
-                        <img src="icons/search.svg" alt="Pesquisar">
-                    </button>
+                    <form action="/available-result" method="GET">
+                        <input type="search" name="availableSearchBar" placeholder="Pesquisar..." id="left-search">
+                        <button type="submit">
+                            <img src="icons/search.svg" alt="Pesquisar">
+                        </button>
+                    </form>
                 </div>
                 <button class="filter">
                     <select name="filter-select">
@@ -24,15 +26,26 @@
                 </button>
             </div>
             <div class="side-items">
-                <% for(i in available_equipaments) { %>
+                <% if (locals.searchQuery) { %>
+                    <% for(i in availableEquipaments) { %>
+                        <div class="item-box">
+                            <div class="item-details">
+                                <h2><%= availableEquipaments[i].name %></h2>
+                                <h3><%= availableEquipaments[i].description %></h3>
+                                <h3><%= availableEquipaments[i].serialNumber%></h3>
+                            </div>
+                        </div>
+                    <% } %>
+                <% } else if (locals.allEquipaments){%>
+                <% for(i in allEquipaments) { %>
                     <div class="item-box">
                         <div class="item-details">
-                            <h2><%= available_equipaments[i].name %></h2>
-                            <h3><%= available_equipaments[i].description %></h3>
-                            <h3><%= available_equipaments[i].serialNumber%></h3>
+                            <h2><%=allEquipaments[i].name %></h2>
+                            <h3><%=allEquipaments[i].description %></h3>
+                            <h3><%=allEquipaments[i].serialNumber%></h3>
                         </div>
                     </div>
-                <% } %>
+                <% } } %>
             </div>
         </div>
 
@@ -57,19 +70,7 @@
                     </select>
                 </button>
             </div>
-            <div class="side-items">
-                <% for(i in ocuped_equipmanets) { %>
-                    <div class="item-box">
-                        <div class="item-details">
-                            <h2><%= ocuped_equipmanets[i].name %></h2>
-                            <h3><%= ocuped_equipmanets[i].description %></h3>
-                            <h3><%= ocuped_equipmanets[i].serialNumber%></h3>
-                        </div>
-                        <div class="item-status"></div>
-                        <div class="item-expand"></div>
-                    </div>
-                <% } %>
-            </div>
+            
         </div>
     </div>
 

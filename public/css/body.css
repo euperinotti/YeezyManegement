@@ -71,11 +71,11 @@ button {
     font-size: var(--font-size-sm);
 }
 
-.search-bar button {
+.search-bar a {
     width: 3rem;
 }
 
-.search-bar button img {
+.search-bar a img {
     height: 1.75rem;
 }
 

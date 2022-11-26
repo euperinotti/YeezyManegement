@@ -3,9 +3,7 @@ import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
 import { componentSequelize } from '../instances/mysql';
-import { Sequelize } from 'sequelize';
-
-
+import { Sequelize, Op } from 'sequelize';
 
 type Sort = {
   sortType: "name" | "type" | "marca"
@@ -13,26 +11,35 @@ type Sort = {
 
 export const home = async (req: Request, res: Response) => { 
     // let searchQuery = document.querySelector('#left-search');
-    let available_equipaments = await Equipament.findAll({
+    const allEquipaments = await Equipament.findAll({
       where:{
         status: 'disponivel'
       }
     });
-    let ocuped_equipmanets = await Equipament.findAll({
-        where:{
-          status: 'ocupado'
-        }
-    })
+
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
         pageName: 'Home',
         menu: selectedMenu('home'),
-        available_equipaments,
-        ocuped_equipmanets
+        allEquipaments
     });
 }
 
-export const configdb = (req: Request, res: Response) => {
-    res.render(path.join(__dirname, '/src/configdb.js'),{
-        pageName: 'Config'
-    })
+export const searchHome = async (req: Request, res: Response) => {
+  let searchQuery = req.query.availableSearchBar;
+  console.log(searchQuery)
+
+  const availableEquipaments = await Equipament.findAll({
+    where: {
+      name: {
+        [Op.like]: `%${searchQuery}%`
+      }
+    }
+  });
+
+  res.render(path.join(__dirname, '../views/pages/index.ejs'), {
+    pageName: 'Home',
+    menu: selectedMenu('home'),
+    searchQuery,
+    availableEquipaments
+  });
 }

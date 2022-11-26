@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize')
 const database = require('../../public/configdb')
 const Equipment = require('./Equipament.ts')
-import { iEquipament } from './Equipament'
+import { IEquipament } from './Equipament'
 
-interface IEstoque extends iEquipament {
+interface IEstoque extends IEquipament {
     quantidade: number;
     descricao: string;
-    equipament: iEquipament
+    equipament: IEquipament
 }
 
 const Estoques = database.define('Estoque', 

@@ -1,11 +1,11 @@
 import Sequelize, { Model, DataTypes } from 'sequelize';
 import { componentSequelize } from '../instances/mysql';
-import { iEquipament } from './Equipament'
+import { IEquipament } from './Equipament'
 
-interface IClient extends iEquipament, Model {
+interface IClient extends IEquipament, Model {
     name: string;
     cnpj: string;
-    equipament: iEquipament
+    equipament: IEquipament
 }
 
 export const Cliente = componentSequelize.define<IClient>('Cliente', 

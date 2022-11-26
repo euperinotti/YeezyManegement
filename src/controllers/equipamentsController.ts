@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { Model } from 'sequelize';
 import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament, IEquipament } from '../models/Equipament';
@@ -17,7 +16,7 @@ export const index = async (req: Request, res: Response) => {
 
 export const newEquipament = async (req: Request, res: Response) => {
 
-    const newEquipament: IEquipament = {
+    const newEquipament = {
         name: req.body.equipamentName,
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
