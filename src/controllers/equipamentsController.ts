@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import path from 'path';
+import { Op } from 'sequelize';
 import { selectedMenu } from '../helpers/menuHelper';
-import { Equipament, IEquipament } from '../models/Equipament';
+import { Equipament } from '../models/Equipament';
 
 export const index = async (req: Request, res: Response) => {
 
@@ -13,6 +14,22 @@ export const index = async (req: Request, res: Response) => {
         equipamentos
     });
 }
+
+export const search = async (req: Request, res: Response) => {
+    let equipamentos = await Equipament.findAll({
+        where: {
+            name: {
+                [Op.like]: [`%${req.query.searchQuery as string}%`]
+            }
+        }
+    });
+
+    res.render(path.join(__dirname, '../views/pages/equipaments.ejs'), {
+        pageName: 'Equipamentos',
+        menu: selectedMenu('equipaments'),
+        equipamentos
+    });
+} 
 
 export const newEquipament = async (req: Request, res: Response) => {
 
@@ -30,7 +47,6 @@ export const newEquipament = async (req: Request, res: Response) => {
 
     res.redirect('/equipaments');
 }
-
 
 /*DELETE*/
 

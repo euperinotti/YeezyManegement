@@ -52,10 +52,13 @@
             </div>
             <div class="panel-actions">
                 <div class="search-bar">
-                    <input type="search" name="equipament-search" placeholder="Pesquisar...">
-                    <button type="submit">
-                        <img src="icons/search.svg" alt="Pesquisar">
-                    </button>
+                    <form action="/equipaments-result" method="GET">
+                        <input type="search" name="searchQuery" placeholder="Pesquisar..."
+                            id="left-search">
+                        <button type="submit">
+                            <img src="icons/search.svg" alt="Pesquisar">
+                        </button>
+                    </form>
                 </div>
                 <div class="add-equipament-div">
                     <button class="add-equipament btn-ghost">Novo Equipamento</button>
