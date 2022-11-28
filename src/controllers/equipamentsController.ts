@@ -3,6 +3,7 @@ import path from 'path';
 import { JSON, Op } from 'sequelize';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
+import { newClient } from './clientsController';
 
 export const index = async (req: Request, res: Response) => {
 
@@ -39,7 +40,8 @@ export const newEquipament = async (req: Request, res: Response) => {
         partNumber: req.body.equipamentPartNumber,
         serialNumber: req.body.equipamentSerialNumber as string,
         status: req.body.equipamentStatus,
-        quantidade: req.body.equipamentQuantidade
+        quantidade: req.body.equipamentQuantidade,
+        idCliente: newClient.idCliente
     })
 
     res.redirect('/equipaments');
