@@ -10,4 +10,3 @@ addEquipament.addEventListener('click', () => {
 closeWindow.addEventListener('click', () => {
     hiddenWindow.style.display = 'none';
 })
-

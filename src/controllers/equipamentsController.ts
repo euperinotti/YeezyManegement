@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
+import { json, Request, Response } from 'express';
 import path from 'path';
+import { JSON, Op } from 'sequelize';
 import { selectedMenu } from '../helpers/menuHelper';
-import { Equipament, IEquipament } from '../models/Equipament';
+import { Equipament } from '../models/Equipament';
 
 export const index = async (req: Request, res: Response) => {
 
@@ -14,27 +15,40 @@ export const index = async (req: Request, res: Response) => {
     });
 }
 
+export const search = async (req: Request, res: Response) => {
+    let equipamentos = await Equipament.findAll({
+        where: {
+            name: {
+                [Op.like]: [`%${req.query.searchQuery as string}%`]
+            }
+        }
+    });
+
+    res.render(path.join(__dirname, '../views/pages/equipaments.ejs'), {
+        pageName: 'Equipamentos',
+        menu: selectedMenu('equipaments'),
+        equipamentos
+    });
+}
+
 export const newEquipament = async (req: Request, res: Response) => {
 
-    const newEquipament = {
+    await Equipament.create({
         name: req.body.equipamentName,
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
-        serialNumber: req.body.equipamentSerialNumber,
+        serialNumber: req.body.equipamentSerialNumber as string,
         status: req.body.equipamentStatus,
-        quantidade: req.body.equipamentQuantidade,
-        type: req.body.equipamentType
-    }
-
-    await Equipament.create({ newEquipament })
+        quantidade: req.body.equipamentQuantidade
+    })
 
     res.redirect('/equipaments');
 }
 
-
 /*DELETE*/
 
-export const delete_things = async(req: Request, res: Response) => {
+export const delete_things = async (req: Request, res: Response) => {
+
     await Equipament.destroy({
         where: {
             idequipamento: req.params.idequipamento
@@ -47,18 +61,35 @@ export const delete_things = async(req: Request, res: Response) => {
 
 /*UPDATE*/
 
-export const update_all = async(req: Request, res: Response) => {
-    let update_all = Equipament.update({
-        serialNumber: req.body.serialNumber,
-        partNumber: req.body.partNumber,
-        description: req.body.description,
-        name: req.body.name,
-        status: req.body.status
+export const preUpdate = async (req: Request, res: Response) => {
+
+    let id = req.params.idequipamento;
+
+    let selectedEquipament = await Equipament.findByPk(Number(id));
+
+    res.render(path.join(__dirname, '../views/pages/editEquipament.ejs'), {
+        pageName: 'Editar Equipamento',
+        menu: selectedMenu('equipaments'),
+        selectedEquipament,
+    });
+
+}
+
+export const Update = async (req: Request, res: Response) => {
+    await Equipament.update({
+        serialNumber: req.body.equipamentSerialNumber,
+        partNumber: req.body.equipamentPartNumber,
+        description: req.body.equipamentDescription,
+        name: req.body.equipamentName,
+        status: req.body.equipamentStatus,
+        quantidade: req.body.equipamentQuantidade as number
     },
-        {where: {
-            idequipamento: req.params.idequipamento
-        } 
-    }
- )
-    update_all
+        {
+            where: {
+                idequipamento: Number(req.params.idequipamento)
+            }
+        })
+
+    res.redirect('/equipaments');
+
 }

@@ -1,4 +1,4 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import * as Home from '../controllers/homeController';
 import * as Equipaments from "../controllers/equipamentsController";
 import * as Clients from "../controllers/clientsController"
@@ -6,12 +6,14 @@ import * as Clients from "../controllers/clientsController"
 const routes = Router();
 
 routes.get('/', Home.home);
-routes.get('/available-result', Home.searchHome);
+routes.get('/search-result', Home.searchHome);
 
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
 routes.get('/equipaments/delete-equip/idequipamento=:idequipamento', Equipaments.delete_things);
-routes.post('/updateequipamento', Equipaments.update_all);
+routes.get('/update-equip-:idequipamento', Equipaments.preUpdate);
+routes.post('/update-equip-:idequipamento', Equipaments.Update);
+routes.get('/equipaments-result', Equipaments.search)
 
 routes.get('/clients', Clients.select_clients);
 routes.post('/novocliente', Clients.newClient);

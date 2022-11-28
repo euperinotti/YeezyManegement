@@ -9,37 +9,7 @@
             </div>
             <div class="panel-body">
                 <form action="/novoequipamento" method="post">
-                    <label for="equipament-name">
-                        Nome*: <br>
-                        <input type="text" name="equipamentName" id="equipament-name" required>
-                    </label>
-                    <label for="equipament-serial-number">
-                        Serial Number*: <br>
-                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" required>
-                    </label>
-                    <label for="equipament-part-number">
-                        Part Number*: <br>
-                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" required>
-                    </label>
-                    <label for="equipament-description">
-                        Descrição: <br>
-                        <input type="text" name="equipamentDescription" id="equipament-description">
-                    </label>
-                    <label for="equipament-quantidade">
-                        Quantidade: <br>
-                        <input type="number" name="equipamentQuantidade" id="equipament-quantidade">
-                    </label>
-                    <label for="equipament-Status">
-                        Status*: <br>
-                        <select name="equipamentStatus" id="equipament-Status">
-                            <option value="Disponivel" selected>Disponivel</option>
-                            <option value="Ocupado">Ocupado</option>
-                        </select>
-                    </label>
-                    <div class="form-footer">
-                        <button class="close-window btn-ghost">Cancelar</button>
-                        <button type="submit" class="btn-cta">Salvar</button>
-                    </div>
+                    <%- include('../partials/hiddenWindow.ejs') -%>
                 </form>
             </div>
         </div>
@@ -52,10 +22,13 @@
             </div>
             <div class="panel-actions">
                 <div class="search-bar">
-                    <input type="search" name="equipament-search" placeholder="Pesquisar...">
-                    <button type="submit">
-                        <img src="icons/search.svg" alt="Pesquisar">
-                    </button>
+                    <form action="/equipaments-result" method="GET">
+                        <input type="search" name="searchQuery" placeholder="Pesquisar..."
+                            id="left-search">
+                        <button type="submit">
+                            <img src="icons/search.svg" alt="Pesquisar">
+                        </button>
+                    </form>
                 </div>
                 <div class="add-equipament-div">
                     <button class="add-equipament btn-ghost">Novo Equipamento</button>
@@ -81,8 +54,11 @@
                         <td><%= equipamentos[i].status %> </td>
 
                         <td>
-                             <button id="delete-equipaments" class="btn-text">
+                            <button id="delete-equipaments" class="btn-text">
                                 <a href="/equipaments/delete-equip/idequipamento=<%= equipamentos[i].idequipamento %>">Excluir</a>
+                            </button>
+                            <button id="update-equipaments" class="btn-text edit-equipament">
+                                <a href="/update-equip-<%= equipamentos[i].idequipamento %>">Editar</a>
                             </button>
                         </td>
                     </tr>
