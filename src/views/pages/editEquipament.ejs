@@ -1,0 +1,56 @@
+<%- include('../partials/head.ejs') -%>
+    <link rel="stylesheet" href="css/equipaments.css">
+    </head>
+
+    <body>
+        <%- include('../partials/aside-menu.ejs') -%>
+        <div class="panel-header">
+            <div class="header-container">
+                <h1 class="header-raleway">Editar Equipamento</h1>
+            </div>
+            <div class="panel-body">
+                <form action="/update-equip-<%= selectedEquipament.idequipamento %>" method="post">
+                    <label for="equipament-name">
+                        Nome*: <% selectedEquipament.name %><br>
+                        <input type="text" name="equipamentName" id="equipament-name" value="<%= selectedEquipament.name %> " required>
+                    </label>
+                    <label for="equipament-serial-number">
+                        Serial Number*: <br>
+                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" value="<%= selectedEquipament.serialNumber %> " required>
+                    </label>
+                    <label for="equipament-part-number">
+                        Part Number*: <br>
+                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" value="<%= selectedEquipament.partNumber %> " required>
+                    </label>
+                    <label for="equipament-description">
+                        Descrição: <br>
+                        <input type="text" name="equipamentDescription" id="equipament-description" value="<%= selectedEquipament.description %> ">
+                    </label>
+                    <label for="equipament-quantidade">
+                        Quantidade: <br>
+                        <input type="number" name="equipamentQuantidade" id="equipament-quantidade" value="<%= selectedEquipament.quantidade %> ">
+                    </label>
+                    <label for="equipament-Status">
+                        Status*: <br>
+                        <select name="equipamentStatus" id="equipament-Status">
+                            <option value="Disponivel" <% if (selectedEquipament.status == 'Disponivel') { %>
+                                selected
+                            <% } %> >Disponivel</option>
+                            <option value="Ocupado" <% if (selectedEquipament.status == 'Ocupado') { %>
+                                selected
+                            <% } %>>Ocupado</option>
+                        </select>
+                    </label>
+                    <div class="form-footer">
+                        <button class="close-window btn-ghost">Cancelar</button>
+                        <button type="submit" class="btn-cta">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </body>
+
+    </html>

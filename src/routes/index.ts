@@ -11,7 +11,8 @@ routes.get('/search-result', Home.searchHome);
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
 routes.get('/equipaments/delete-equip/idequipamento=:idequipamento', Equipaments.delete_things);
-routes.post('/equipaments/update-equip/idequipamento=:idequipamento', Equipaments.update_all);
+routes.get('/update-equip-:idequipamento', Equipaments.preUpdate);
+routes.post('/update-equip-:idequipamento', Equipaments.Update);
 routes.get('/equipaments-result', Equipaments.search)
 
 routes.get('/clients', Clients.select_clients);

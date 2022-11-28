@@ -29,25 +29,26 @@ export const search = async (req: Request, res: Response) => {
         menu: selectedMenu('equipaments'),
         equipamentos
     });
-} 
+}
 
 export const newEquipament = async (req: Request, res: Response) => {
 
-    await Equipament.create({ 
+    await Equipament.create({
         name: req.body.equipamentName,
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
         serialNumber: req.body.equipamentSerialNumber as string,
         status: req.body.equipamentStatus,
-        quantidade: req.body.equipamentQuantidade })
+        quantidade: req.body.equipamentQuantidade
+    })
 
     res.redirect('/equipaments');
 }
 
 /*DELETE*/
 
-export const delete_things = async(req: Request, res: Response) => {
-    
+export const delete_things = async (req: Request, res: Response) => {
+
     await Equipament.destroy({
         where: {
             idequipamento: req.params.idequipamento
@@ -60,33 +61,35 @@ export const delete_things = async(req: Request, res: Response) => {
 
 /*UPDATE*/
 
-export const update_all = async(req: Request, res: Response) => {
-    // let update_all = Equipament.update({
-    //     serialNumber: req.body.serialNumber,
-    //     partNumber: req.body.partNumber,
-    //     description: req.body.description,
-    //     name: req.body.name,
-    //     status: req.body.status
-    // },
-    //     {where: {
-    //         idequipamento: req.params.idequipamento
-    //     } 
-    // })
+export const preUpdate = async (req: Request, res: Response) => {
 
-    let equipamentos = await Equipament.findAll();
     let id = req.params.idequipamento;
 
-    let selectedEquipament = Equipament.findAll({
-        where: {
-            idequipamento: [Number(id)]
-        }
-    })
+    let selectedEquipament = await Equipament.findByPk(Number(id));
 
-    res.render(path.join(__dirname, '../views/pages/equipaments.ejs'), {
-        pageName: 'Equipamentos',
+    res.render(path.join(__dirname, '../views/pages/editEquipament.ejs'), {
+        pageName: 'Editar Equipamento',
         menu: selectedMenu('equipaments'),
-        equipamentos,
-        selectedEquipament
+        selectedEquipament,
     });
-    
- }
+
+}
+
+export const Update = async (req: Request, res: Response) => {
+    await Equipament.update({
+        serialNumber: req.body.equipamentSerialNumber,
+        partNumber: req.body.equipamentPartNumber,
+        description: req.body.equipamentDescription,
+        name: req.body.equipamentName,
+        status: req.body.equipamentStatus,
+        quantidade: req.body.equipamentQuantidade as number
+    },
+        {
+            where: {
+                idequipamento: Number(req.params.idequipamento)
+            }
+        })
+
+    res.redirect('/equipaments');
+
+}
