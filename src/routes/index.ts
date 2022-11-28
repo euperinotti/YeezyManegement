@@ -8,6 +8,8 @@ const routes = Router();
 routes.get('/', Home.home);
 routes.get('/search-result', Home.searchHome);
 
+/*EQUIPAMENTOS*/
+
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
 routes.get('/equipaments/delete-equip/idequipamento=:idequipamento', Equipaments.delete_things);
@@ -15,9 +17,13 @@ routes.get('/update-equip-:idequipamento', Equipaments.preUpdate);
 routes.post('/update-equip-:idequipamento', Equipaments.Update);
 routes.get('/equipaments-result', Equipaments.search)
 
+
+/*clientes*/
+
 routes.get('/clients', Clients.select_clients);
 routes.post('/novocliente', Clients.newClient);
-routes.post('/updatecliente', Clients.update_all);
+routes.get('/update-cliente-:idCliente', Clients.preUpdate);
+routes.post('/update-cliente-:idCliente', Clients.update_all);
 routes.get('/clients/delete-client/idCliente=:idCliente', Clients.delete_thing)
 
 export default routes

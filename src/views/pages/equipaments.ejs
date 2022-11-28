@@ -43,6 +43,7 @@
                     <th>Serial Number</th>
                     <th>Part Number</th>
                     <th>Status</th>
+                    <th>Quantidade</th>
                     <th>Ação</th>
                 </thead>
                 <% for(i in equipamentos) { %>
@@ -52,7 +53,7 @@
                         <td><%= equipamentos[i].serialNumber %> </td>
                         <td><%= equipamentos[i].partNumber %> </td>
                         <td><%= equipamentos[i].status %> </td>
-
+                        <td><%= equipamentos[i].quantidade %> </td>
                         <td>
                             <button id="delete-equipaments" class="btn-text">
                                 <a href="/equipaments/delete-equip/idequipamento=<%= equipamentos[i].idequipamento %>">Excluir</a>

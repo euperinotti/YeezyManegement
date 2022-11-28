@@ -8,7 +8,6 @@ export interface IEquipament extends Model {
   partNumber: string;
   serialNumber: string;
   status: "Disponível" | "Ocupado";
-  type: string;
   quantidade: number;
 }
 

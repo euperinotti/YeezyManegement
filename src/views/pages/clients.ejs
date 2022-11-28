@@ -54,12 +54,16 @@
                 <% for(i in clients) { %>
                     <tr>
                         <td><%= clients[i].idCliente %> </td>
-                        <td><%= clients[i].cnpj %> </td>
                         <td><%= clients[i].name %> </td>
+                        <td><%= clients[i].cnpj %> </td>
+                        
 
                         <td>
                         <button id="delete-client" class="btn-text"> 
                             <a href="/clients/delete-client/idCliente=<%= clients[i].idCliente %>">Excluir</a>
+                        </button>
+                        <button id="update-cliente" class="btn-text edit-client">
+                            <a href="/update-cliente-<%= clients[i].idCliente %>">Editar</a>
                         </button>
                     </td>
                 </tr>
