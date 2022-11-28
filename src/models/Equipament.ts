@@ -53,5 +53,5 @@ export const Equipament = componentSequelize.define<IEquipament>('Equipament',
 
 Equipament.belongsTo(Cliente,{
   constraints: true,
-  foreignKey: 'idCliente'
+  foreignKey: 'cliente_idCliente'
 })
