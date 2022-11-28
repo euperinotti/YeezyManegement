@@ -41,7 +41,7 @@ export const newEquipament = async (req: Request, res: Response) => {
         serialNumber: req.body.equipamentSerialNumber as string,
         status: req.body.equipamentStatus,
         quantidade: req.body.equipamentQuantidade,
-        idCliente: newClient.idCliente
+        idCliente: req.body.equipamentIdCliente
     })
 
     res.redirect('/equipaments');
