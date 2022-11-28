@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
+import { json, Request, Response } from 'express';
 import path from 'path';
-import { Op } from 'sequelize';
+import { JSON, Op } from 'sequelize';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
 
@@ -33,17 +33,13 @@ export const search = async (req: Request, res: Response) => {
 
 export const newEquipament = async (req: Request, res: Response) => {
 
-    const newEquipament = {
+    await Equipament.create({ 
         name: req.body.equipamentName,
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
-        serialNumber: req.body.equipamentSerialNumber,
+        serialNumber: req.body.equipamentSerialNumber as string,
         status: req.body.equipamentStatus,
-        quantidade: req.body.equipamentQuantidade,
-        type: req.body.equipamentType
-    }
-
-    await Equipament.create({ newEquipament })
+        quantidade: req.body.equipamentQuantidade })
 
     res.redirect('/equipaments');
 }
@@ -51,6 +47,7 @@ export const newEquipament = async (req: Request, res: Response) => {
 /*DELETE*/
 
 export const delete_things = async(req: Request, res: Response) => {
+    
     await Equipament.destroy({
         where: {
             idequipamento: req.params.idequipamento
@@ -64,17 +61,32 @@ export const delete_things = async(req: Request, res: Response) => {
 /*UPDATE*/
 
 export const update_all = async(req: Request, res: Response) => {
-    let update_all = Equipament.update({
-        serialNumber: req.body.serialNumber,
-        partNumber: req.body.partNumber,
-        description: req.body.description,
-        name: req.body.name,
-        status: req.body.status
-    },
-        {where: {
-            idequipamento: req.params.idequipamento
-        } 
-    }
- )
-    update_all
-}
+    // let update_all = Equipament.update({
+    //     serialNumber: req.body.serialNumber,
+    //     partNumber: req.body.partNumber,
+    //     description: req.body.description,
+    //     name: req.body.name,
+    //     status: req.body.status
+    // },
+    //     {where: {
+    //         idequipamento: req.params.idequipamento
+    //     } 
+    // })
+
+    let equipamentos = await Equipament.findAll();
+    let id = req.params.idequipamento;
+
+    let selectedEquipament = Equipament.findAll({
+        where: {
+            idequipamento: [Number(id)]
+        }
+    })
+
+    res.render(path.join(__dirname, '../views/pages/equipaments.ejs'), {
+        pageName: 'Equipamentos',
+        menu: selectedMenu('equipaments'),
+        equipamentos,
+        selectedEquipament
+    });
+    
+ }

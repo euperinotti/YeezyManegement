@@ -41,10 +41,6 @@ export const Equipament = componentSequelize.define<IEquipament>('Equipament',
     allowNull: false,
     defaultValue: "Disponivel"
   },
-  type: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
   quantidade: {
     type: DataTypes.INTEGER,
     allowNull: false
