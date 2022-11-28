@@ -44,16 +44,31 @@ export const delete_thing = async(req: Request, res: Response) => {
 
 /*UPDATE*/ 
 
+
+export const preUpdate = async (req: Request, res: Response) => {
+
+    let id = req.params.idCliente;
+
+    let selectedCliente = await Cliente.findByPk(Number(id));
+
+    res.render(path.join(__dirname, '../views/pages/editClient.ejs'), {
+        pageName: 'Editar Cliente',
+        menu: selectedMenu('clients'),
+        selectedCliente,
+    });
+
+}
+
 export const update_all = async(req: Request, res: Response) => {
-    let update_all = Cliente.update({
+    await Cliente.update({
         cnpj: req.body.clientCnpj,
         name: req.body.name,
-     
     },
-        {where: {
-            idCliente: req.params.idCliente
+        {
+            where: {
+            idCliente: Number(req.params.idCliente)
         } 
     }
  )
-    update_all
+ res.redirect('/clients');
 }

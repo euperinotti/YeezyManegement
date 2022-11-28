@@ -1,0 +1,34 @@
+<%- include('../partials/head.ejs') -%>
+    <link rel="stylesheet" href="css/equipaments.css">
+    </head>
+
+    <body>
+        <%- include('../partials/aside-menu.ejs') -%>
+        <div class="panel-header">
+            <div class="header-container">
+                <h1 class="header-raleway">Editar Cliente</h1>
+            </div>
+            <div class="panel-body">
+                <form action="/update-cliente-<%= selectedCliente.idCliente %>" method="post">
+                    <label for="client-name">
+                        Nome*: <% selectedCliente.name %><br>
+                        <input type="text" name="clientName" id="client-name" value="<%= selectedCliente.name %> " required>
+                    </label>
+                
+                    <label for="client-Cnpj">
+                        Cnpj*: <br>
+                        <input type="text" name="clientCnpj" id="client-Cnpj" value="<%= selectedCliente.cnpj %> " required>
+                    </label>
+                    <div class="form-footer">
+                        <button class="close-window btn-ghost">Cancelar</button>
+                        <button type="submit" class="btn-cta">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </body>
+
+    </html>
