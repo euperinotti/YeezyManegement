@@ -27,7 +27,7 @@
                     </div>
                     <div class="side-items">
                             <% for(i in availableEquipaments) { %>
-                                <div class="item-box">
+                                <div class="item-box" draggable="true">
                                     <div class="item-details">
                                         <h2>
                                             <%= availableEquipaments[i].name %>
@@ -66,9 +66,9 @@
                             <option value="brand">Marca</option>
                         </select>
                     </div>
-                    <div class="side-items">
+                    <div class="side-items occupied-side">
                             <% for(i in occupiedEquipaments) { %>
-                                <div class="item-box">
+                                <div class="item-box" draggable="true">
                                     <div class="item-details">
                                         <h2>
                                             <%= occupiedEquipaments[i].name %>
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <script type="module" src="configdb.js"></script>
+            <script type="module" src="js/dragAndDrop.js"></script>
     </body>
 
     </html>
