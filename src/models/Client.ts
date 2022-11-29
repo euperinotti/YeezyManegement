@@ -14,21 +14,16 @@ export const Cliente = componentSequelize.define<IClient>('Cliente',
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   cnpj: {
     type: DataTypes.STRING,
     allowNull: false
   },
-   /*equipament_idequipament: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    defaultValue: true
-  },*/
   name: {
     type: DataTypes.STRING,
     allowNull: false
-  }
+  },
 }, {
   tableName: 'Cliente',
   timestamps: false

@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import { componentSequelize } from '../instances/mysql';
-
+import { Cliente } from './Client';
 
 export interface IEquipament extends Model {
   name: string;
@@ -10,6 +10,7 @@ export interface IEquipament extends Model {
   status: "Disponível" | "Ocupado";
   quantidade: number;
 }
+
 
 export const Equipament = componentSequelize.define<IEquipament>('Equipament', 
 {
@@ -43,10 +44,14 @@ export const Equipament = componentSequelize.define<IEquipament>('Equipament',
   quantidade: {
     type: DataTypes.INTEGER,
     allowNull: false
-  }
+  },
+  
 }, {
   tableName: 'equipamentos',
-  timestamps: false
+  timestamps: false,
 })
 
-  
+Equipament.belongsTo(Cliente,{
+  constraints: true,
+  foreignKey: 'cliente_idCliente'
+})
