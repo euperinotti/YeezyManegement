@@ -32,11 +32,16 @@
                 <h1 class="header-raleway">Cliente</h1>
             </div>
             <div class="panel-actions">
+
                 <div class="search-bar">
-                    <input type="search" name="equipament-search" placeholder="Pesquisar...">
-                    <button type="submit">
-                        <img src="icons/search.svg" alt="Pesquisar">
-                    </button>
+                    <form action="/clients-result" method="GET">
+                        <input type="search" name="searchQuery" placeholder="Pesquisar..."
+                            id="left-search">
+                        <button type="submit">
+                            <img src="icons/search.svg" alt="Pesquisar">
+                        </button>
+                    </form>
+                    
                 </div>
                 <div class="add-equipament-div">
                     <button class="add-equipament btn-ghost">Novo Cliente</button>
