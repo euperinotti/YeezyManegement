@@ -4,11 +4,12 @@
 
     <body>
         <%- include('../partials/aside-menu.ejs') -%>
+    <div class="center"> 
         <div class="panel-header">
             <div class="header-container">
                 <h1 class="header-raleway">Editar Equipamento</h1>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" id="center">
                 <form action="/update-equip-<%= selectedEquipament.idequipamentos %>" method="post">
                     <label for="equipament-name">
                         Nome*: <% selectedEquipament.name %><br>
@@ -47,6 +48,7 @@
                     </div>
                 </form>
             </div>
+        </div>  
         </div>
         </div>
 

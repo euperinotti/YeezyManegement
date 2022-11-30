@@ -11,7 +11,7 @@
 
 body {
     display: flex;
-    align-items: flex-start;
+
     background-color: #f8f8f8;
 }
 
@@ -195,18 +195,29 @@ form input[type="text"], form select, form input[type="number"] {
     transition: all 0.3s ease-in-out;
 }
 
-.hidden-window .panel-header {
-    width: auto;
-    max-width: 50rem;
-    height: auto;
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
+
+.hidden-window .panel-header {
+    width: auto;    
+    max-width: 100rem;
+    height: auto;
+
+}
+
 
 .panel-body {
     background-color: white;
     border-radius: 0 0 var(--spacing-l) var(--spacing-l);
     overflow-y: scroll;
-    height: 60vh;
+    height: 60vh;   
 }
+
+   
 
 .panel-body, .header-container {
     padding: var(--spacing-m);
