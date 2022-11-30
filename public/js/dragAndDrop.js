@@ -54,7 +54,14 @@ function drop(e){
 
     if(e.currentTarget.querySelector('.occupied-side') == null){
         let dragItem = document.querySelector('.item-box.dragging');
-        e.currentTarget.appendChild(dragItem);
-        document.querySelector('.hidden-window').style.display = 'flex'
+        let closeWindow = document.querySelector('.close-window');
+        let hiddenWindow = document.querySelector('.hidden-window');
+
+        hiddenWindow.style.display = 'flex';
+
+        closeWindow.addEventListener('click', () => {
+            hiddenWindow.style.display = 'none';
+            e.currentTarget.appendChild(dragItem);
+        })
     }
 }
