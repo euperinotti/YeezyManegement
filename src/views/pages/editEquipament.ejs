@@ -9,7 +9,7 @@
                 <h1 class="header-raleway">Editar Equipamento</h1>
             </div>
             <div class="panel-body">
-                <form action="/update-equip-<%= selectedEquipament.idequipamento %>" method="post">
+                <form action="/update-equip-<%= selectedEquipament.idequipamentos %>" method="post">
                     <label for="equipament-name">
                         Nome*: <% selectedEquipament.name %><br>
                         <input type="text" name="equipamentName" id="equipament-name" value="<%= selectedEquipament.name %> " required>

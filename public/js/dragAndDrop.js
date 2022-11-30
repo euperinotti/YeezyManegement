@@ -52,8 +52,9 @@ function dragLeave(e){
 function drop(e){
     e.currentTarget.classList.remove('hover');
 
-    if(e.currentTarget.querySelector('.item') == null){
-        let dragItem = document.querySelector('.item.dragging');
+    if(e.currentTarget.querySelector('.occupied-side') == null){
+        let dragItem = document.querySelector('.item-box.dragging');
         e.currentTarget.appendChild(dragItem);
+        document.querySelector('.hidden-window').style.display = 'flex'
     }
 }

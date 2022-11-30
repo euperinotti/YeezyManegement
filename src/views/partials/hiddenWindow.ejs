@@ -26,8 +26,12 @@
     </select>
 </label>
 <label for="equipament-cliente_idCliente">
-    idCliente*: <br>
-    <input type="text" name="cliente_idCliente" id="equipament-idCliente">
+    Cliente Portador: <br>
+    <select name="clientResponsible" id="clientResponsible">
+        <% for(i in clientes) { %>
+            <option value="<%= clientes[i].idCliente %>"><%= clientes[i].name %> </option>
+        <% } %>
+    </select>
 </label>
 <div class="form-footer">
     <button class="close-window btn-ghost">Cancelar</button>
