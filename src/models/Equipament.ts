@@ -14,7 +14,7 @@ export interface IEquipament extends Model {
 
 export const Equipament = componentSequelize.define<IEquipament>('Equipament', 
 {
-  idequipamento: {
+  idequipamentos: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,

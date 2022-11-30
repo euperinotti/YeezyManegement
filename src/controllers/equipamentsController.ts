@@ -1,18 +1,21 @@
-import { json, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import path from 'path';
-import { JSON, Op } from 'sequelize';
+import { Op } from 'sequelize';
 import { selectedMenu } from '../helpers/menuHelper';
+import { Cliente } from '../models/Client';
 import { Equipament } from '../models/Equipament';
 import { newClient } from './clientsController';
 
 export const index = async (req: Request, res: Response) => {
 
     let equipamentos = await Equipament.findAll();
+    let clientes = await Cliente.findAll();
 
     res.render(path.join(__dirname, '../views/pages/equipaments.ejs'), {
         pageName: 'Equipamentos',
         menu: selectedMenu('equipaments'),
-        equipamentos
+        equipamentos,
+        clientes
     });
 }
 
@@ -41,7 +44,7 @@ export const newEquipament = async (req: Request, res: Response) => {
         serialNumber: req.body.equipamentSerialNumber as string,
         status: req.body.equipamentStatus,
         quantidade: req.body.equipamentQuantidade,
-        idCliente: req.body.equipamentidCliente
+        cliente_idCliente: req.body.clientResponsible
     })
 
     res.redirect('/equipaments');
@@ -59,7 +62,6 @@ export const delete_things = async (req: Request, res: Response) => {
 
     res.redirect('/equipaments');
 }
-
 
 /*UPDATE*/
 
@@ -88,7 +90,7 @@ export const Update = async (req: Request, res: Response) => {
     },
         {
             where: {
-                idequipamento: Number(req.params.idequipamento)
+                idequipamentos: Number(req.params.idequipamento)
             }
         })
 

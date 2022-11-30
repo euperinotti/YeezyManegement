@@ -3,6 +3,7 @@ import path from 'path';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Equipament } from '../models/Equipament';
 import { Op } from 'sequelize';
+import { Cliente } from '../models/Client';
 
 type Sort = {
     sortType: "name" | "type" | "marca"
@@ -49,11 +50,14 @@ const searchResults = async (query?: string, status?: 'Disponivel' | 'Ocupado') 
 
 export const home = async (req: Request, res: Response) => {
 
+    let clientes = await Cliente.findAll();
+
     res.render(path.join(__dirname, '../views/pages/index.ejs'), {
         pageName: 'Home',
         menu: selectedMenu('home'),
         availableEquipaments: (await searchResults()).availableEquipaments,
-        occupiedEquipaments: (await searchResults()).occupiedEquipaments
+        occupiedEquipaments: (await searchResults()).occupiedEquipaments,
+        clientes
     });
 }
 

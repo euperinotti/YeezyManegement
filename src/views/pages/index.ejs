@@ -3,6 +3,18 @@
     </head>
 
     <body>
+        <div class="hidden-window">
+            <div class="panel-header">
+                <div class="header-container">
+                    <h1 class="header-raleway">Editar Equipamento</h1>
+                </div>
+                <div class="panel-body">
+                    <form action="/novoequipamento" method="post">
+                        <%- include('../partials/hiddenWindow.ejs') -%>
+                    </form>
+                </div>
+            </div>
+        </div>
         <%- include('../partials/aside-menu.ejs') %>
             <div id="menu-container" class="main-content">
                 <div class="left-side">
@@ -19,15 +31,15 @@
                                 </button>
                             </form>
                         </div>
-                        <select name="filter-select" class="filter">
+                        <!-- <select name="filter-select" class="filter">
                             <option value="name">Nome</option>
                             <option value="type">Tipo</option>
                             <option value="brand">Marca</option>
-                        </select>
+                        </select> -->
                     </div>
                     <div class="side-items">
                             <% for(i in availableEquipaments) { %>
-                                <div class="item-box">
+                                <div class="item-box" draggable="true">
                                     <div class="item-details">
                                         <h2>
                                             <%= availableEquipaments[i].name %>
@@ -41,6 +53,13 @@
                                         <h3>
                                             <%= availableEquipaments[i].quantidade%>
                                         </h3>
+                                        <h3>
+                                            <% for(i in clientes) { %>
+                                                <% if (clientes[i].idCliente == availableEquipaments[i].cliente_idCliente) { %>
+                                                    <%= clientes[i].name %>
+                                                <% } %>
+                                            <% } %>
+                                        </h3>
                                     </div>
                                 </div>
                             <% } %>
@@ -49,7 +68,7 @@
 
                 <div class="line-divisor"></div>
 
-                <div class="left-side">
+                <div class="left-side right-side">
                     <div class="side-header">
                         <h1 class="header-franklin">OCUPADOS</h1>
                     </div>
@@ -63,15 +82,15 @@
                                 </button>
                             </form>
                         </div>
-                        <select name="filter-select" class="filter">
+                        <!-- <select name="filter-select" class="filter">
                             <option value="name">Nome</option>
                             <option value="type">Tipo</option>
                             <option value="brand">Marca</option>
-                        </select>
+                        </select> -->
                     </div>
-                    <div class="side-items">
+                    <div class="side-items occupied-side">
                             <% for(i in occupiedEquipaments) { %>
-                                <div class="item-box">
+                                <div class="item-box" draggable="true">
                                     <div class="item-details">
                                         <h2>
                                             <%= occupiedEquipaments[i].name %>
@@ -93,7 +112,7 @@
                 </div>
             </div>
 
-            <script type="module" src="configdb.js"></script>
+            <script type="module" src="js/dragAndDrop.js"></script>
     </body>
 
     </html>
