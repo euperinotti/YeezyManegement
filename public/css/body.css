@@ -205,7 +205,7 @@ form input[type="text"], form select, form input[type="number"] {
     background-color: white;
     border-radius: 0 0 var(--spacing-l) var(--spacing-l);
     overflow-y: scroll;
-    height: 60vh;
+    height: max-content;
 }
 
 .panel-body, .header-container {

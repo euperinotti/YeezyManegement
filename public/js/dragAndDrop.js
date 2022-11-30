@@ -56,6 +56,7 @@ function drop(e){
         let dragItem = document.querySelector('.item-box.dragging');
         let closeWindow = document.querySelector('.close-window');
         let hiddenWindow = document.querySelector('.hidden-window');
+        let hiddenForm = document.querySelector('#hiddenForm');
 
         hiddenWindow.style.display = 'flex';
 

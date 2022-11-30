@@ -6,11 +6,26 @@
         <div class="hidden-window">
             <div class="panel-header">
                 <div class="header-container">
-                    <h1 class="header-raleway">Editar Equipamento</h1>
+                    <h1 class="header-raleway">Transferir Equipamento</h1>
                 </div>
                 <div class="panel-body">
-                    <form action="/novoequipamento" method="post">
-                        <%- include('../partials/hiddenWindow.ejs') -%>
+                    <form action="/transfer/" method="post">
+                        <label for="equipament-quantidade">
+                            Quantidade: <br>
+                            <input type="number" name="equipamentQuantidade" id="equipament-quantidade">
+                        </label>
+                        <label for="equipament-cliente_idCliente">
+                            Cliente Portador: <br>
+                            <select name="clientResponsible" id="clientResponsible">
+                                <% for(i in clientes) { %>
+                                    <option value="<%= clientes[i].idCliente %>"><%= clientes[i].name %> </option>
+                                <% } %>
+                            </select>
+                        </label>
+                        <div class="form-footer">
+                            <button type="reset" class="close-window btn-ghost">Cancelar</button>
+                            <button type="submit" class="btn-cta">Salvar</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -39,7 +54,7 @@
                     </div>
                     <div class="side-items">
                             <% for(i in availableEquipaments) { %>
-                                <div class="item-box" draggable="true">
+                                <div class="item-box" draggable="true" id="equiId-<%= availableEquipaments[i].idequipamentos %>">
                                     <div class="item-details">
                                         <h2>
                                             <%= availableEquipaments[i].name %>
