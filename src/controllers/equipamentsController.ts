@@ -42,11 +42,10 @@ export const newEquipament = async (req: Request, res: Response) => {
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
         serialNumber: req.body.equipamentSerialNumber as string,
-        status: req.body.equipamentStatus,
         quantidade: req.body.equipamentQuantidade,
         cliente_idCliente: req.body.clientResponsible
     })
-
+  
     res.redirect('/equipaments');
 }
 
