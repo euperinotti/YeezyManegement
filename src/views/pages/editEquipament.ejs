@@ -41,14 +41,6 @@
                             <% } %>>Ocupado</option>
                         </select>
                     </label>
-                    <label for="equipament-cliente_idCliente">
-                        Cliente Portador: <br>
-                        <select name="clientResponsible" id="clientResponsible">
-                            <% for(i in selectedCliente) { %>
-                                <option value="<%= selectedCliente[i].idCliente %>"><%= selectedCliente[i].name %> </option>
-                            <% } %>
-                        </select>
-                    </label>
                     <div class="form-footer">
                         <button class="close-window btn-ghost">Cancelar</button>
                         <button type="submit" class="btn-cta">Salvar</button>

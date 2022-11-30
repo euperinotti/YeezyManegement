@@ -4,7 +4,7 @@ import { Op } from 'sequelize';
 import { selectedMenu } from '../helpers/menuHelper';
 import { Cliente } from '../models/Client';
 import { Equipament } from '../models/Equipament';
-
+import { newClient } from './clientsController';
 
 export const index = async (req: Request, res: Response) => {
 
@@ -70,13 +70,11 @@ export const preUpdate = async (req: Request, res: Response) => {
     let id = req.params.idequipamento;
 
     let selectedEquipament = await Equipament.findByPk(Number(id));
-    let selectedCliente = await Cliente.findByPk(Number(id));
 
     res.render(path.join(__dirname, '../views/pages/editEquipament.ejs'), {
         pageName: 'Editar Equipamento',
         menu: selectedMenu('equipaments'),
         selectedEquipament,
-        selectedCliente
     });
 
 }
