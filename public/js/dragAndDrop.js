@@ -55,16 +55,20 @@ function drop(e){
     if(e.currentTarget.querySelector('.occupied-side') == null){
         let dragItem = document.querySelector('.item-box.dragging');
         let closeWindow = document.querySelector('.close-window');
+        let submitForm = document.querySelector('.submitForm');
         let hiddenWindow = document.querySelector('.hidden-window');
         let hiddenForm = document.querySelector('#hiddenForm');
-        let equipamentId = document.querySelector('.item-box').contains
+        let equipamentId = document.querySelector('.item-box');
 
         hiddenWindow.style.display = 'flex';
+
+        submitForm.addEventListener('click', () => {
+            hiddenForm.action = `/transfer/${equipamentId.getAttribute('equipId')}`
+        })
 
         closeWindow.addEventListener('click', () => {
             hiddenWindow.style.display = 'none';
             e.currentTarget.appendChild(dragItem);
-            hiddenForm.action = '/transfer'
         })
     }
 }

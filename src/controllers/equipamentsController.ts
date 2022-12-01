@@ -37,16 +37,24 @@ export const search = async (req: Request, res: Response) => {
 
 export const newEquipament = async (req: Request, res: Response) => {
 
+    let clientResponsible;
+
+    if(!req.body.clientResponsible) {
+        clientResponsible = null
+    } else {
+        clientResponsible = await Cliente.findByPk(req.body.clientResponsible);
+    }
+
     await Equipament.create({
         name: req.body.equipamentName,
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
         serialNumber: req.body.equipamentSerialNumber as string,
-        status: req.body.equipamentStatus,
         quantidade: req.body.equipamentQuantidade,
-        cliente_idCliente: req.body.clientResponsible
+        status: req.body.equipamentStatus,
+        responsavel: clientResponsible?.name
     })
-
+  
     res.redirect('/equipaments');
 }
 

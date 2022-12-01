@@ -11,7 +11,7 @@
 
 body {
     display: flex;
-    align-items: flex-start;
+
     background-color: #f8f8f8;
 }
 
@@ -195,10 +195,18 @@ form input[type="text"], form select, form input[type="number"] {
     transition: all 0.3s ease-in-out;
 }
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .hidden-window .panel-header {
-    width: auto;
-    max-width: 50rem;
+    width: auto;    
+    max-width: 100rem;
     height: auto;
+
 }
 
 .panel-body {
