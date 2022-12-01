@@ -38,7 +38,7 @@
                     </label>
                     <label for="equipament-cliente_idCliente" class="clientResponsible">
                         Cliente Portador: <br>
-                        <select name="clientResponsible" id="clientResponsible">
+                        <select name="clientResponsible" id="clientResponsible" disabled="">
                             <% for(i in clientes) { %>
                                 <option value="<%= clientes[i].idCliente %>"><%= clientes[i].name %> </option>
                             <% } %>

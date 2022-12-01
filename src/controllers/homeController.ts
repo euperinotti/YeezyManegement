@@ -6,8 +6,6 @@ import { Op } from 'sequelize';
 import { Cliente } from '../models/Client';
 import { searchResults } from '../helpers/searchHelper';
 
-
-
 export const home = async (req: Request, res: Response) => {
 
     let clientes = await Cliente.findAll();
@@ -34,5 +32,17 @@ export const searchHome = async (req: Request, res: Response) => {
 }
 
 export const transferEquipament = async (req: Request, res: Response) => {
-    
+    let equipId = req.params.id;
+    let cliente = await Cliente.findByPk(req.body.clientResponsible);
+
+    await Equipament.update({
+        status: 'Ocupado',
+        responsavel: cliente?.name
+    }, {
+        where: {
+            idequipamentos: equipId
+        }
+    });
+
+    res.redirect('/');
 }

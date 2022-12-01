@@ -40,9 +40,9 @@ export const newEquipament = async (req: Request, res: Response) => {
     let clientResponsible;
 
     if(!req.body.clientResponsible) {
-        clientResponsible = '0'
+        clientResponsible = null
     } else {
-        clientResponsible = req.body.clientResponsible
+        clientResponsible = await Cliente.findByPk(req.body.clientResponsible);
     }
 
     await Equipament.create({
@@ -52,7 +52,7 @@ export const newEquipament = async (req: Request, res: Response) => {
         serialNumber: req.body.equipamentSerialNumber as string,
         quantidade: req.body.equipamentQuantidade,
         status: req.body.equipamentStatus,
-        cliente_idCliente: clientResponsible
+        responsavel: clientResponsible?.name
     })
   
     res.redirect('/equipaments');

@@ -91,10 +91,11 @@
     font-family: 'Raleway';
     font-size: 1rem;
     font-weight: 300;
+    margin: 0.25rem 0;
 }
 
 .line-divisor {
-    height: 50%;
+    height: 100%;
     background-color: var(--violet);
     width: 2px;
 }

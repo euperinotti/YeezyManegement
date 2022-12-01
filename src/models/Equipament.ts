@@ -45,13 +45,12 @@ export const Equipament = componentSequelize.define<IEquipament>('Equipament',
     type: DataTypes.INTEGER,
     allowNull: false
   },
+  responsavel: {
+    type: DataTypes.STRING,
+    allowNull: true
+  }
   
 }, {
   tableName: 'equipamentos',
   timestamps: false,
-})
-
-Equipament.belongsTo(Cliente,{
-  constraints: true,
-  foreignKey: 'cliente_idCliente'
 })

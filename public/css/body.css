@@ -209,15 +209,12 @@ form input[type="text"], form select, form input[type="number"] {
 
 }
 
-
 .panel-body {
     background-color: white;
     border-radius: 0 0 var(--spacing-l) var(--spacing-l);
     overflow-y: scroll;
     height: max-content;
 }
-
-   
 
 .panel-body, .header-container {
     padding: var(--spacing-m);
