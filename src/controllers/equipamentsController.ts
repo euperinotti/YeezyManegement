@@ -76,13 +76,14 @@ export const delete_things = async (req: Request, res: Response) => {
 export const preUpdate = async (req: Request, res: Response) => {
 
     let id = req.params.idequipamento;
-
+    let clientes = await Cliente.findAll();
     let selectedEquipament = await Equipament.findByPk(Number(id));
 
     res.render(path.join(__dirname, '../views/pages/editEquipament.ejs'), {
         pageName: 'Editar Equipamento',
         menu: selectedMenu('equipaments'),
         selectedEquipament,
+        clientes
     });
 
 }

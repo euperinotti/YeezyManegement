@@ -11,7 +11,6 @@
 
 body {
     display: flex;
-
     background-color: #f8f8f8;
 }
 
@@ -95,6 +94,10 @@ button {
     padding: var(--spacing-ss);
 }
 
+.btn-ghost a {
+    color: var(--violet);
+}
+
 .btn-text a {
     color: var(--violet);
 }
@@ -117,6 +120,21 @@ button {
     border-radius: 0.5rem;
     width: max-content;
     padding: var(--spacing-s) var(--spacing-m);
+}
+
+.btn-ghost-delete {
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    color: var(--violet);
+    border: 2px solid red;
+    border-radius: 0.5rem;
+    width: max-content;
+    padding: var(--spacing-ss);
+}
+
+.btn-ghost-delete a {
+    color: red;
 }
 
 table {
@@ -200,6 +218,12 @@ form input[type="text"], form select, form input[type="number"] {
     align-items: center;
     justify-content: center;
     width: 100%;
+    overflow: visible;
+    background-color: unset;
+}
+
+.panel-header {
+    box-shadow: var(--box-shadow);
 }
 
 .hidden-window .panel-header {

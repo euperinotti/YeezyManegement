@@ -18,7 +18,6 @@ export const select_clients = async (req: Request, res: Response) => {
     });  
 }   
 
-
 /*SEARCH*/ 
 
 export const search = async (req: Request, res: Response) => {

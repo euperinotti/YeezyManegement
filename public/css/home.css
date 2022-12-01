@@ -2,14 +2,14 @@
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding: var(--spacing-m);
+    margin: var(--spacing-xl);
     gap: var(--spacing-s);
-    height: calc(100vh - var(--spacing-m));
+    height: calc(100vh - (var(--spacing-xl) + var(--spacing-xl)));
 }
 
 .left-side {
     gap: 1rem;
-    height: calc(100vh - var(--spacing-m));
+    height: calc(100vh - var(--spacing-xl));
     width: 50%;
     display: flex;
     flex-direction: column;
