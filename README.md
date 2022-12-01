@@ -1,15 +1,17 @@
-# Gestao de Equipamento
+# Yeezy Management
 
-Levantamentos de Requisitos:
+Uma solução para gestão de equipamentos usando NodeJs
 
-## Dependencias
+## Dependências
 
-Nodemon, Typescript, Firebase, Express, Ts-Node, Ejs
+Nodemon, Typescript, Express, Ts-Node, Ejs, SQL
 
 ## Instalação
 
-`npm install`
+1. Primeiramente baixe e execute o SQL necessário para a execução da aplicação
+2. Com base na sua instalação do SQL, crie seu prório arquivo `.env` contendo as variáveis de ambiente necessárias
+3. Execute o comando `npm install` para instalar todas as dependências necessárias para utilizar o projeto
 
 ## Utilização
 
-`npm run dev`
+Após concluida toda a instalação, execute o comando `npm run dev` para inicializar o servidor
