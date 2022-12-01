@@ -24,7 +24,7 @@
                         </label>
                         <div class="form-footer">
                             <button type="reset" class="close-window btn-ghost">Cancelar</button>
-                            <button type="submit" class="btn-cta">Salvar</button>
+                            <button type="submit" class="submitForm btn-cta">Salvar</button>
                         </div>
                     </form>
                 </div>
@@ -54,19 +54,16 @@
                     </div>
                     <div class="side-items">
                             <% for(i in availableEquipaments) { %>
-                                <div class="item-box" draggable="true" id="equiId-<%= availableEquipaments[i].idequipamentos %>">
+                                <div class="item-box" draggable="true" equipId="<%= availableEquipaments[i].idequipamentos %>">
                                     <div class="item-details">
                                         <h2>
                                             <%= availableEquipaments[i].name %>
                                         </h2>
                                         <h3>
-                                            <%= availableEquipaments[i].status %>
+                                            Serial: <%= availableEquipaments[i].serialNumber %>
                                         </h3>
                                         <h3>
-                                            <%= availableEquipaments[i].serialNumber %>
-                                        </h3>
-                                        <h3>
-                                            <%= availableEquipaments[i].quantidade%>
+                                            Part: <%= availableEquipaments[i].partNumber%>
                                         </h3>
                                         <h3>
                                             <% for(i in clientes) { %>
@@ -111,13 +108,13 @@
                                             <%= occupiedEquipaments[i].name %>
                                         </h2>
                                         <h3>
-                                            <%= occupiedEquipaments[i].status %>
+                                            Serial: <%= occupiedEquipaments[i].serialNumber%>
                                         </h3>
                                         <h3>
-                                            <%= occupiedEquipaments[i].serialNumber%>
+                                            Part: <%= occupiedEquipaments[i].partNumber%>
                                         </h3>
                                         <h3>
-                                            <%= occupiedEquipaments[i].quantidade%>
+                                            Responsável: <%= occupiedEquipaments[i].responsavel%>
                                         </h3>
                                     </div>
                                 </div>
