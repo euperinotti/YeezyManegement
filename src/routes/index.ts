@@ -26,5 +26,7 @@ routes.post('/novocliente', Clients.newClient);
 routes.get('/update-cliente-:idCliente', Clients.preUpdate);
 routes.post('/update-cliente-:idCliente', Clients.update_all);
 routes.get('/clients/delete-client/idCliente=:idCliente', Clients.delete_thing)
+routes.get('/clients-result', Clients.search)
+
 
 export default routes
