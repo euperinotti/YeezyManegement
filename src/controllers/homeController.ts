@@ -48,3 +48,18 @@ export const transferEquipament = async (req: Request, res: Response) => {
 
     res.redirect('/');
 }
+
+export const restoreEquipament = async (req: Request, res: Response) => {
+    let equipId = req.params.id;
+
+    await Equipament.update({
+        status: 'Disponivel',
+        responsavel: null
+    }, {
+        where: {
+            idequipamentos: equipId
+        }
+    });
+
+    res.redirect('/');
+}

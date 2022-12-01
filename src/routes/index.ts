@@ -7,7 +7,8 @@ const routes = Router();
 
 routes.get('/', Home.home);
 routes.get('/search-result', Home.searchHome);
-routes.post('/transfer/:id', Home.transferEquipament)
+routes.post('/transfer/:id', Home.transferEquipament);
+routes.get('/restore/:id', Home.restoreEquipament)
 
 /*EQUIPAMENTOS*/
 

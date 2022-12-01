@@ -1,14 +1,4 @@
-document.querySelector('.side-items')?.addEventListener('click', (e) => {
-    
-    // .target é usado para descobrir qual elemento (e) foi clicado
-    // pelo usuário
-    console.log(e.target);
-
-    // enquanto isso, o currentTarget tem basicamente a mesma finalidade porém ele exibe
-    // o elemento que possui o evento de click
-});
-
-document.querySelectorAll('.occupied-side')?.forEach(area => {
+document.querySelectorAll('.left-side')?.forEach(area => {
 
     // Sempre que for necessário criar um evento de drag and drop, é necessário
     // ter essas 3 funções, drag over, drag leave e drop
@@ -51,8 +41,9 @@ function dragLeave(e){
 
 function drop(e){
     e.currentTarget.classList.remove('hover');
+    
 
-    if(e.currentTarget.querySelector('.occupied-side') == null){
+    if(e.target.classList.contains('occupied-side')){
         let dragItem = document.querySelector('.item-box.dragging');
         let closeWindow = document.querySelector('.close-window');
         let submitForm = document.querySelector('.submitForm');
@@ -70,5 +61,10 @@ function drop(e){
             hiddenWindow.style.display = 'none';
             e.currentTarget.appendChild(dragItem);
         })
+    }
+    if(e.target.classList.contains('available-side')){
+        let dragItem = document.querySelector('.item-box.dragging');
+
+        location.href = `/restore/${dragItem.getAttribute('equipId')}`
     }
 }
