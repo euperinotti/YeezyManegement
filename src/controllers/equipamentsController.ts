@@ -37,13 +37,22 @@ export const search = async (req: Request, res: Response) => {
 
 export const newEquipament = async (req: Request, res: Response) => {
 
+    let clientResponsible;
+
+    if(!req.body.clientResponsible) {
+        clientResponsible = '0'
+    } else {
+        clientResponsible = req.body.clientResponsible
+    }
+
     await Equipament.create({
         name: req.body.equipamentName,
         description: req.body.equipamentDescription,
         partNumber: req.body.equipamentPartNumber,
         serialNumber: req.body.equipamentSerialNumber as string,
         quantidade: req.body.equipamentQuantidade,
-        cliente_idCliente: req.body.clientResponsible
+        status: req.body.equipamentStatus,
+        cliente_idCliente: clientResponsible
     })
   
     res.redirect('/equipaments');
