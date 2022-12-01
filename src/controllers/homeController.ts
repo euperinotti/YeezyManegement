@@ -20,6 +20,7 @@ export const home = async (req: Request, res: Response) => {
 }
 
 export const searchHome = async (req: Request, res: Response) => {
+    let clientes = await Cliente.findAll();
     let availableQuery = req.query.availableSearchBar as string;
     let occupiedQuery = req.query.occupiedSearchBar as string
 
@@ -27,7 +28,8 @@ export const searchHome = async (req: Request, res: Response) => {
         pageName: 'Home',
         menu: selectedMenu('home'),
         availableEquipaments: (await searchResults(availableQuery, 'Disponivel')).availableEquipaments,
-        occupiedEquipaments: (await searchResults(occupiedQuery, 'Ocupado')).occupiedEquipaments
+        occupiedEquipaments: (await searchResults(occupiedQuery, 'Ocupado')).occupiedEquipaments,
+        clientes
     });
 }
 
