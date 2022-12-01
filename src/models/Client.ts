@@ -28,5 +28,3 @@ export const Cliente = componentSequelize.define<IClient>('Cliente',
   tableName: 'Cliente',
   timestamps: false
 })
-
-exports.module = Cliente

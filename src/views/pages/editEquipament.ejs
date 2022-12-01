@@ -12,34 +12,38 @@
             <div class="panel-body" id="center">
                 <form action="/update-equip-<%= selectedEquipament.idequipamentos %>" method="post">
                     <label for="equipament-name">
-                        Nome*: <% selectedEquipament.name %><br>
-                        <input type="text" name="equipamentName" id="equipament-name" value="<%= selectedEquipament.name %> " required>
+                        Nome: <br>
+                        <input type="text" name="equipamentName" id="equipament-name" required>
                     </label>
                     <label for="equipament-serial-number">
-                        Serial Number*: <br>
-                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" value="<%= selectedEquipament.serialNumber %> " required>
+                        Serial Number: <br>
+                        <input type="text" name="equipamentSerialNumber" id="equipament-serial-number" required>
                     </label>
                     <label for="equipament-part-number">
-                        Part Number*: <br>
-                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" value="<%= selectedEquipament.partNumber %> " required>
+                        Part Number: <br>
+                        <input type="text" name="equipamentPartNumber" id="equipament-part-number" required>
                     </label>
                     <label for="equipament-description">
                         Descrição: <br>
-                        <input type="text" name="equipamentDescription" id="equipament-description" value="<%= selectedEquipament.description %> ">
+                        <input type="text" name="equipamentDescription" id="equipament-description">
                     </label>
                     <label for="equipament-quantidade">
                         Quantidade: <br>
-                        <input type="text" name="equipamentQuantidade" id="equipament-quantidade" value="<%= selectedEquipament.quantidade %> ">
+                        <input type="number" name="equipamentQuantidade" id="equipament-quantidade">
                     </label>
                     <label for="equipament-Status">
-                        Status*: <br>
+                        Status: <br>
                         <select name="equipamentStatus" id="equipament-Status">
-                            <option value="Disponivel" <% if (selectedEquipament.status == 'Disponivel') { %>
-                                selected
-                            <% } %> >Disponivel</option>
-                            <option value="Ocupado" <% if (selectedEquipament.status == 'Ocupado') { %>
-                                selected
-                            <% } %>>Ocupado</option>
+                            <option value="Disponivel" selected>Disponivel</option>
+                            <option value="Ocupado">Ocupado</option>
+                        </select>
+                    </label>
+                    <label for="equipament-cliente_idCliente" class="clientResponsible">
+                        Cliente Portador: <br>
+                        <select name="clientResponsible" id="clientResponsible" disabled="">
+                            <% for(i in clientes) { %>
+                                <option value="<%= clientes[i].idCliente %>"><%= clientes[i].name %> </option>
+                            <% } %>
                         </select>
                     </label>
                     <div class="form-footer">
@@ -50,9 +54,8 @@
             </div>
         </div>  
         </div>
-        </div>
-
-        </div>
     </body>
+
+    <script type="module" src="js/toggleStatus.js"></script>
 
     </html>
