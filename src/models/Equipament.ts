@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import { componentSequelize } from '../instances/mysql';
+import { componentSequelize } from '../instances/postgres';
 import { Cliente } from './Client';
 
 export interface IEquipament extends Model {
@@ -21,11 +21,11 @@ export const Equipament = componentSequelize.define<IEquipament>('Equipament',
     primaryKey: true,
     defaultValue: false
 },
-  serialNumber: {
+  serialnumber: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  partNumber: {
+  partnumber: {
     type: DataTypes.STRING,
     allowNull: false,
   },

@@ -1,8 +1,9 @@
 import Sequelize, { Model, DataTypes } from 'sequelize';
-import { componentSequelize } from '../instances/mysql';
+import { componentSequelize } from '../instances/postgres';
 import { IEquipament } from './Equipament'
 
 interface IClient extends IEquipament, Model {
+    idcliente: string;
     name: string;
     cnpj: string;
     equipament: IEquipament
@@ -10,7 +11,7 @@ interface IClient extends IEquipament, Model {
 
 export const Cliente = componentSequelize.define<IClient>('Cliente', 
 {
-  idCliente: {
+  idcliente: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     allowNull: false,
@@ -25,6 +26,6 @@ export const Cliente = componentSequelize.define<IClient>('Cliente',
     allowNull: false
   },
 }, {
-  tableName: 'Cliente',
+  tableName: 'cliente',
   timestamps: false
 })

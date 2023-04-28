@@ -10,7 +10,6 @@ routes.get('/search-result', Home.searchHome);
 routes.post('/transfer/:id', Home.transferEquipament);
 routes.get('/restore/:id', Home.restoreEquipament)
 
-/*EQUIPAMENTOS*/
 
 routes.get('/equipaments', Equipaments.index);
 routes.post('/novoequipamento', Equipaments.newEquipament);
@@ -19,8 +18,6 @@ routes.get('/update-equip-:idequipamento', Equipaments.preUpdate);
 routes.post('/update-equip-:idequipamento', Equipaments.Update);
 routes.get('/equipaments-result', Equipaments.search);
 
-
-/*clientes*/
 
 routes.get('/clients', Clients.select_clients);
 routes.post('/novocliente', Clients.newClient);
